@@ -1,6 +1,6 @@
 <?php
 /****************************************************/
-/*  include file for jportal     修正テスト  ブランチ */
+/*  include file for jportal     修正テスト  ブランチ 編集*/
 /****************************************************/
 
   header('Content-Type: text/html; charset=Shift_JIS');

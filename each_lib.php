@@ -1,44 +1,44 @@
 <?php
 /****************************************************/
-/*  include file for jportal                        */
+/*  include file for jportal     ä¿®æ­£ãƒ†ã‚¹ãƒˆ          */
 /****************************************************/
 
   header('Content-Type: text/html; charset=Shift_JIS');
 
 
-  $DBSERVER   = "sddb0040058795.cgidb";    //MySQLƒT[ƒo[–¼
-  $DBUSER     = "sd_dba_NjkwNTU5";         //ƒƒOƒCƒ“ƒ†[ƒU[–¼
-  $DBPASSWORD = "ryomiyo#2008";             //ƒpƒXƒ[ƒh
-  $DBNAME     = "sddb0040058795";   //ƒf[ƒ^ƒx[ƒX–¼
+  $DBSERVER   = "sddb0040058795.cgidb";    //MySQLã‚µãƒ¼ãƒãƒ¼å
+  $DBUSER     = "sd_dba_NjkwNTU5";         //ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶ãƒ¼å
+  $DBPASSWORD = "ryomiyo#2008";             //ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+  $DBNAME     = "sddb0040058795";   //ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹å
 
-  $PICTUREDIR   = "picture/";       //Ê^ƒtƒ@ƒCƒ‹‚ÌÅI•Û‘¶æƒpƒX
-  $PICTURETMP   = "picturetmp/";    //Ê^ƒtƒ@ƒCƒ‹‚Ìˆê•Û‘¶æƒpƒX
+  $PICTUREDIR   = "picture/";       //å†™çœŸãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚ä¿å­˜å…ˆãƒ‘ã‚¹
+  $PICTURETMP   = "picturetmp/";    //å†™çœŸãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€æ™‚ä¿å­˜å…ˆãƒ‘ã‚¹
 
-  $FILEDATADIR   = "filedata/";       //ƒtƒ@ƒCƒ‹‚ÌÅI•Û‘¶æƒpƒX
-  $FILEDATATMP   = "filedatatmp/";    //ƒtƒ@ƒCƒ‹‚Ìˆê•Û‘¶æƒpƒX
+  $FILEDATADIR   = "filedata/";       //ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚ä¿å­˜å…ˆãƒ‘ã‚¹
+  $FILEDATATMP   = "filedatatmp/";    //ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€æ™‚ä¿å­˜å…ˆãƒ‘ã‚¹
 
-  $ADMSESS    = "sslogined";    //ŠÇ—ÒƒƒOƒCƒ“‚Åg‚¤ƒZƒbƒVƒ‡ƒ“•Ï”–¼
-  $USERSESS    = "sslogined";    //ƒƒOƒCƒ“‚Åg‚¤ƒZƒbƒVƒ‡ƒ“•Ï”–¼
+  $ADMSESS    = "sslogined";    //ç®¡ç†è€…ãƒ­ã‚°ã‚¤ãƒ³ã§ä½¿ã†ã‚»ãƒƒã‚·ãƒ§ãƒ³å¤‰æ•°å
+  $USERSESS    = "sslogined";    //ãƒ­ã‚°ã‚¤ãƒ³ã§ä½¿ã†ã‚»ãƒƒã‚·ãƒ§ãƒ³å¤‰æ•°å
 
 function newinfo_check() {
 
   $usersess = $_SESSION['USERSESS'];
 
-  $upddate_from_a = date("Y-m-d",strtotime('-1 day')); //‰ß‹“ú‚Ìw’è
-  $upddate_from_b = date("Y-m-d",strtotime('-7 day')); //‰ß‹“ú‚Ìw’è
-  $upddate_to   = date("Y-m-d");                     //“–“ú‚Ìİ’è
+  $upddate_from_a = date("Y-m-d",strtotime('-1 day')); //éå»æ—¥ã®æŒ‡å®š
+  $upddate_from_b = date("Y-m-d",strtotime('-7 day')); //éå»æ—¥ã®æŒ‡å®š
+  $upddate_to   = date("Y-m-d");                     //å½“æ—¥ã®è¨­å®š
 
-  //–¼‘O•\¦ƒpƒ^[ƒ“
+  //åå‰è¡¨ç¤ºãƒ‘ã‚¿ãƒ¼ãƒ³
   $mysqli = my_sql_connect("sjis");
 
-  //ŒÂl‚ÌŒŸõ‰Â”\î•ñ‹æ•ª‚ğæ“¾
+  //å€‹äººã®æ¤œç´¢å¯èƒ½æƒ…å ±åŒºåˆ†ã‚’å–å¾—
   $searchclass = perinfoclass_set($usersess);
 
-  //“o˜^“ú•ÊŒŸõ‚Ìê‡‚ÍAƒAƒNƒZƒX‚Å‚«‚é‘S‚Ä‚ğ•\¦
+  //ç™»éŒ²æ—¥åˆ¥æ¤œç´¢ã®å ´åˆã¯ã€ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹å…¨ã¦ã‚’è¡¨ç¤º
   $infoclass = ALL; 
 
-  //“o˜^“ú•ÊŒŸõ‚ÌWHERE‹å‚ğì¬(ŠJn)
-  $where = " ((infoavaflg != 'íœ') and ";
+  //ç™»éŒ²æ—¥åˆ¥æ¤œç´¢ã®WHEREå¥ã‚’ä½œæˆ(é–‹å§‹)
+  $where = " ((infoavaflg != 'å‰Šé™¤') and ";
 
   $where .= "(";
   for ($i = 0; $i < sizeof($searchclass); $i++) {
@@ -52,7 +52,7 @@ function newinfo_check() {
     $colcl = mysqli_fetch_array($rst_cl);
        
     $class_id_v = $colcl['class_id'];
-    if ( $searchclass[$i] == "ŒÂl" ) {
+    if ( $searchclass[$i] == "å€‹äºº" ) {
       $where .= " (infoclass = \"$searchclass[$i]\" and regid = \"$usersess\") ";
       $keynaviso .= $searchclass[$i] ;
     }
@@ -62,18 +62,18 @@ function newinfo_check() {
   }
 
   $where .= ") and ";
-  $where_a .= " (upddate BETWEEN \"$upddate_from_a\" AND \"$upddate_to\" )) "; //ŠúŠÔw’è‚ÌğŒİ’è
-  $where_b .= " (upddate BETWEEN \"$upddate_from_b\" AND \"$upddate_to\" )) "; //ŠúŠÔw’è‚ÌğŒİ’è
+  $where_a .= " (upddate BETWEEN \"$upddate_from_a\" AND \"$upddate_to\" )) "; //æœŸé–“æŒ‡å®šã®æ¡ä»¶è¨­å®š
+  $where_b .= " (upddate BETWEEN \"$upddate_from_b\" AND \"$upddate_to\" )) "; //æœŸé–“æŒ‡å®šã®æ¡ä»¶è¨­å®š
 
   $sql = "select Count(*) AS cnt from tblinfo where $where" . $where_a;
-  //SQL•¶‚ğ”­s‚µ‚Ü‚·
+  //SQLæ–‡ã‚’ç™ºè¡Œã—ã¾ã™
   $mysqli->query($sql);
   $rst = $mysqli->query($sql);
   $col = mysqli_fetch_array($rst);
   $tcnt_a = $col['cnt'];
 
   $sql = "select Count(*) AS cnt from tblinfo where $where" . $where_b;
-  //SQL•¶‚ğ”­s‚µ‚Ü‚·
+  //SQLæ–‡ã‚’ç™ºè¡Œã—ã¾ã™
   $mysqli->query($sql);
   $rst = $mysqli->query($sql);
   $col = mysqli_fetch_array($rst);
@@ -81,13 +81,13 @@ function newinfo_check() {
 
   mysqli_free_result($rst);
 
-  //“o˜^“ú•ÊŒŸõ‚ÌWHERE‹å‚ğì¬(I—¹)
+  //ç™»éŒ²æ—¥åˆ¥æ¤œç´¢ã®WHEREå¥ã‚’ä½œæˆ(çµ‚äº†)
   return array($tcnt_a,$tcnt_b);
 
 }
 
 
-//w’è‚µ‚½DB‚Å‚ÌƒL[ƒ[ƒhŒŸõŒ‹‰Ê‚Ìbody‚ğ•Ô‚·ŠÖ”
+//æŒ‡å®šã—ãŸDBã§ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢çµæœã®bodyã‚’è¿”ã™é–¢æ•°
 function body_keysearch_any(
 	$db_con_info,$host_url,$host_name,$usersess,$userid,$search_opt,
 
@@ -118,8 +118,8 @@ function body_keysearch_any(
 	$get_rireki_type,
 	$get_click_rireki,$body_keys)  {
 
-  //ƒƒO‘‚«‚İƒtƒ‰ƒO@ƒfƒtƒHƒ‹ƒg off:‘‚«‚İ‚È‚µ
-  $log_write_flg = "off"; // on:‘‚«‚Ş
+  //ãƒ­ã‚°æ›¸ãè¾¼ã¿ãƒ•ãƒ©ã‚°ã€€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ off:æ›¸ãè¾¼ã¿ãªã—
+  $log_write_flg = "off"; // on:æ›¸ãè¾¼ã‚€
   
   $keyword = $get_keyword;
 
@@ -137,18 +137,18 @@ function body_keysearch_any(
   $keyword_org = $get_keyword_org;
   $categoryname = $get_categoryname;
 
-  //classid‚Ìó‚¯æ‚è‚ğ’Ç‰Á
+  //classidã®å—ã‘å–ã‚Šã‚’è¿½åŠ 
   $classid = $get_classid;
   $categid = $get_categid;
 
   $rireki_type = $get_rireki_type;
-  //ƒNƒŠƒbƒN—š—ğ•\¦—p•Ï”
+  //ã‚¯ãƒªãƒƒã‚¯å±¥æ­´è¡¨ç¤ºç”¨å¤‰æ•°
   $click_rireki = $get_click_rireki;
 
-  //ŒÂl–ˆ‚ÌŒŸõî•ñ•\¦‹æ•ª‚ÌƒZƒbƒg
+  //å€‹äººæ¯ã®æ¤œç´¢æƒ…å ±è¡¨ç¤ºåŒºåˆ†ã®ã‚»ãƒƒãƒˆ
   $perinfoclass = perinfoclass_set2($db_con_info,$usersess);
 
-  //ƒT[ƒ`‚Ì‘I‘ğ‹æ•ª‚ÌƒZƒLƒ…ƒŠƒeƒBƒ`ƒFƒbƒNi‘S‚Ä‚Ì‹æ•ª‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚©Æ‡ƒ`ƒFƒbƒNj
+  //ã‚µãƒ¼ãƒã®é¸æŠåŒºåˆ†ã®ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒã‚§ãƒƒã‚¯ï¼ˆå…¨ã¦ã®åŒºåˆ†ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‹ç…§åˆãƒã‚§ãƒƒã‚¯ï¼‰
   $searchclass_chk_f = "OK"; 
   $searchclass_chk_cnt= 0;
   for ( $i=0 ; $i < sizeof($get_searchclass);$i++) { 
@@ -159,23 +159,23 @@ function body_keysearch_any(
     }
   }
   
-  if ( $searchclass_chk_cnt != sizeof( $get_searchclass ) ) { //w’è‚³‚ê‚½‹æ•ª‚ª‘S‚Ä‚È‚¢ê‡NG
+  if ( $searchclass_chk_cnt != sizeof( $get_searchclass ) ) { //æŒ‡å®šã•ã‚ŒãŸåŒºåˆ†ãŒå…¨ã¦ãªã„å ´åˆNG
     $searchclass_chk_f = "NG";
-    $get_searchclass = $perinfoclass; //NG‚Ìê‡‚ÍAŒÂl‚Ìİ’è‚ğ‹­§ƒZƒbƒg
-  } else { //w’è‚µ‚½‹æ•ª‚ª‚ ‚Á‚½ê‡AgetŒŸõ—pƒpƒ‰ƒ[ƒ^bodyì¬
+    $get_searchclass = $perinfoclass; //NGã®å ´åˆã¯ã€å€‹äººã®è¨­å®šã‚’å¼·åˆ¶ã‚»ãƒƒãƒˆ
+  } else { //æŒ‡å®šã—ãŸåŒºåˆ†ãŒã‚ã£ãŸå ´åˆã€getæ¤œç´¢ç”¨ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿bodyä½œæˆ
     $infoclass_body ="";
     for ( $i=0 ; $i < $searchclass_chk_cnt ; $i++) { 
-      $infoclass_body .= "searchclass[" . $i . "]=" . $get_searchclass[$i] ; //ƒT[ƒ`‹æ•ª‚Ìİ’è
+      $infoclass_body .= "searchclass[" . $i . "]=" . $get_searchclass[$i] ; //ã‚µãƒ¼ãƒåŒºåˆ†ã®è¨­å®š
       $last_chk = $i + 1; 
-      if ( $last_chk < $searchclass_chk_cnt) { //ƒ‰ƒXƒg‚Å‚È‚¯‚ê‚Î&‚ğ’Ç‰Á
+      if ( $last_chk < $searchclass_chk_cnt) { //ãƒ©ã‚¹ãƒˆã§ãªã‘ã‚Œã°&ã‚’è¿½åŠ 
         $infoclass_body .= "&";
       }
     }
   }    
 
-  //ƒT[ƒ`‚Ì‘I‘ğ‹æ•ª‚ÌƒZƒbƒVƒ‡ƒ“ŠÔˆøŒp‚¬
-  //w’è‚³‚ê‚½ŒŸõ‹æ•ª‚ª‘¼DB‚Å‚ ‚é‚©ƒ`ƒFƒbƒN
-  //‡’v‚µ‚Ä‚¢‚é”‚ğƒ`ƒFƒbƒN
+  //ã‚µãƒ¼ãƒã®é¸æŠåŒºåˆ†ã®ã‚»ãƒƒã‚·ãƒ§ãƒ³é–“å¼•ç¶™ã
+  //æŒ‡å®šã•ã‚ŒãŸæ¤œç´¢åŒºåˆ†ãŒä»–DBã§ã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
+  //åˆè‡´ã—ã¦ã„ã‚‹æ•°ã‚’ãƒã‚§ãƒƒã‚¯
 
   $ser_flg = 0;
   for ( $i=0; $i < sizeof($perinfoclass);$i++) {
@@ -189,33 +189,33 @@ function body_keysearch_any(
   if ( $ser_flg == 1 ) { 
     $searchclass = hold_searchclass($perinfoclass,$searchclass, $get_searchclass);
   } else {
-    //ŒÂl‚ÌŒŸõî•ñ‹æ•ª‚ğ‚·‚×‚Äİ’è
+    //å€‹äººã®æ¤œç´¢æƒ…å ±åŒºåˆ†ã‚’ã™ã¹ã¦è¨­å®š
     $searchclass = hold_searchclass($perinfoclass,$searchclass, $perinfoclass);
   }
 
-  //DB‚ÉÚ‘±
+  //DBã«æ¥ç¶š
   $mysqli = my_sql_connect_any($db_con_info,"sjis") ;
 
-  //ŒÂl‚Ì“o˜^ƒIƒvƒVƒ‡ƒ“‚ğ“Ç‚İ‚Ş
+  //å€‹äººã®ç™»éŒ²ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’èª­ã¿è¾¼ã‚€
   $sql = "SELECT * FROM user where userid = \"$usersess\" ";
   $rst = $mysqli->query($sql);
   $col = mysqli_fetch_array($rst);
 
-  $opt_ser_disp_menu = $col[opt_ser_disp_menu];//ŒŸõƒƒjƒ…[‚Ìí—Ş
-  $opt_ser_disp_lev = $col[opt_ser_disp_lev];//ŒŸõ•\¦‚ÌƒŒƒxƒ‹
-  $opt_ser_disp_num = $col[opt_ser_disp_num];//ŒŸõŒ‹‰Ê‚Ì•\¦Œ”
-  $opt_ser_hist_num = $col[opt_ser_hist_num];//ƒL[ƒ[ƒh—š—ğŒ”
+  $opt_ser_disp_menu = $col[opt_ser_disp_menu];//æ¤œç´¢ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ç¨®é¡
+  $opt_ser_disp_lev = $col[opt_ser_disp_lev];//æ¤œç´¢è¡¨ç¤ºã®ãƒ¬ãƒ™ãƒ«
+  $opt_ser_disp_num = $col[opt_ser_disp_num];//æ¤œç´¢çµæœã®è¡¨ç¤ºä»¶æ•°
+  $opt_ser_hist_num = $col[opt_ser_hist_num];//ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰å±¥æ­´ä»¶æ•°
 
-  //ŒÂl‚ÌƒEƒHƒbƒ`ƒ[ƒh—L–³Šm”F
+  //å€‹äººã®ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰æœ‰ç„¡ç¢ºèª
   if ( $search_opt == "watch") {
-    $keyword     = $col['watchword'];//ƒL[ƒ[ƒh
-    $keyword_org = $col['watchword'];//ƒL[ƒ[ƒh
+    $keyword     = $col['watchword'];//ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰
+    $keyword_org = $col['watchword'];//ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰
   }  
   //dp(keyword_org,$keyword_org);
 
-  //ƒƒO—pİ’è
+  //ãƒ­ã‚°ç”¨è¨­å®š
 //  $dispname = "search.php";
-  $scene = "ƒL[ƒ[ƒhƒT[ƒ`";
+  $scene = "ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚µãƒ¼ãƒ";
 
   if( !isset($infoclass)) {
     $infoclass = "ALL";
@@ -232,11 +232,11 @@ function body_keysearch_any(
   //dp(keyword_org,$keyword_org);
 
 /*
-  //ƒEƒHƒbƒ`ƒ[ƒh•\¦‚Ìê‡‚ÍA‚»‚Ìƒ[ƒh‚ğæ“¾
+  //ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰è¡¨ç¤ºã®å ´åˆã¯ã€ãã®ãƒ¯ãƒ¼ãƒ‰ã‚’å–å¾—
   if ($dispopt == "watch" ){ 
     $sql = "SELECT * FROM user WHERE userid = \"$usersess\" " ;
 
-    //Œ‹‰ÊƒZƒbƒg‚ğæ“¾‚µ‚Ü‚·
+    //çµæœã‚»ãƒƒãƒˆã‚’å–å¾—ã—ã¾ã™
     $rst = $mysqli->query($sql);
     $col = mysqli_fetch_array($rst);
 
@@ -246,52 +246,52 @@ function body_keysearch_any(
     if ( strlen($keyword) != 0 ) {
       $searchtype = "kw";
     }
-    //ƒƒO—pİ’è
+    //ãƒ­ã‚°ç”¨è¨­å®š
     $dispname = "watchword";
-    $scene = "ƒEƒHƒbƒ`ƒ[ƒh";
+    $scene = "ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰";
   }
 */
 
-  //‚Pƒy[ƒW“–‚è‚Ì•\¦Œ”‚ğİ’è
+  //ï¼‘ãƒšãƒ¼ã‚¸å½“ã‚Šã®è¡¨ç¤ºä»¶æ•°ã‚’è¨­å®š
   $PAGESIZE = $opt_ser_disp_num;
 
-  //–{•¶ì¬
+  //æœ¬æ–‡ä½œæˆ
   if ( $search_opt == "watch" and $keyword !="" ) {
-    $body_result_title = "<h3>ƒEƒHƒbƒ`ƒ[ƒhî•ñ</h3><a href='userupd.php#watchword' align='right' target='_blank' style='text-decoration:none;'>ƒEƒHƒbƒ`ƒ[ƒh“o˜^‚Í‚±‚¿‚ç</a>" ;
+    $body_result_title = "<h3>ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰æƒ…å ±</h3><a href='userupd.php#watchword' align='right' target='_blank' style='text-decoration:none;'>ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰ç™»éŒ²ã¯ã“ã¡ã‚‰</a>" ;
   } else {
-    $body_result_title = "<h3>ÅV“o˜^î•ñ</h3><a href='userupd.php#watchword' align='right' target='_blank' style='text-decoration:none;'>ƒEƒHƒbƒ`ƒ[ƒh“o˜^‚Í‚±‚¿‚ç</a></p>" ;
+    $body_result_title = "<h3>æœ€æ–°ç™»éŒ²æƒ…å ±</h3><a href='userupd.php#watchword' align='right' target='_blank' style='text-decoration:none;'>ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰ç™»éŒ²ã¯ã“ã¡ã‚‰</a></p>" ;
   }
   
   $body .= "<div id='hpb-wrapper'><div id='hbp-main'>" . $body_result_title . ""; 
-//  $body .= "<div id='hpb-inner'><div id='hpb-wrapper'><div id='hbp-main'>" . $body_result_title . "";  ƒŠƒ“ƒN•\¦‚Å‚«‚È‚¢
-//  $body .= "<div id='hpb-main'><h3>y@" . $host_name . "@z</h3>";
+//  $body .= "<div id='hpb-inner'><div id='hpb-wrapper'><div id='hbp-main'>" . $body_result_title . "";  ãƒªãƒ³ã‚¯è¡¨ç¤ºã§ããªã„
+//  $body .= "<div id='hpb-main'><h3>ã€ã€€" . $host_name . "ã€€ã€‘</h3>";
 
-  //î•ñ‹æ•ª‚ğ‘I‘ğ‚·‚éHTML‚ğ¶¬
+  //æƒ…å ±åŒºåˆ†ã‚’é¸æŠã™ã‚‹HTMLã‚’ç”Ÿæˆ
   list($body_tmp,$search_class_chk) = body_search_class_any($host_url,$rireki_type,$perinfoclass,$searchclass);
   $infodiv_body = $body_tmp;
   
-  //ŒŸõ•\¦‚Ì‘‹‚Ì•”•ª‚ÌHTML‚ğ¶¬
+  //æ¤œç´¢è¡¨ç¤ºã®çª“ã®éƒ¨åˆ†ã®HTMLã‚’ç”Ÿæˆ
   $searchwindow = body_search_windows_any($db_con_info,$host_url,$host_name,$usersess,$dispopt,$opt_ser_disp_menu,$opt_ser_hist_num,$keyword_org);
 
-  //ŒŸõ‚Ìí—Ş‚ğ”»•Ê
+  //æ¤œç´¢ã®ç¨®é¡ã‚’åˆ¤åˆ¥
   //  if (isset($keyword) and strlen($keyword) >= 0 and strlen($categoryname) == 0 ) {
     
-  //ƒNƒŠƒbƒN—š—ğŒŸõ
+  //ã‚¯ãƒªãƒƒã‚¯å±¥æ­´æ¤œç´¢
   if (isset($get_click_rireki)) {
 
-    $searchtype = "cr";//ŒŸõƒ^ƒCƒv‚ğƒNƒŠƒbƒN—š—ğŒŸõ‚Éİ’è
-    $resultmes = "@ƒNƒŠƒbƒN—š—ğ‚Å";
+    $searchtype = "cr";//æ¤œç´¢ã‚¿ã‚¤ãƒ—ã‚’ã‚¯ãƒªãƒƒã‚¯å±¥æ­´æ¤œç´¢ã«è¨­å®š
+    $resultmes = "ã€€ã‚¯ãƒªãƒƒã‚¯å±¥æ­´ã§";
 
   } else {
-  //ƒL[ƒ[ƒhŒŸõ
-    $searchtype = "kw";//ŒŸõƒ^ƒCƒv‚ğƒL[ƒ[ƒhŒŸõ‚Éİ’è
+  //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢
+    $searchtype = "kw";//æ¤œç´¢ã‚¿ã‚¤ãƒ—ã‚’ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢ã«è¨­å®š
 
-    //•s³—v‹‚Ìê‡‚ÍƒƒbƒZ[ƒW‚ğo‚µAƒƒOo—Í
+    //ä¸æ­£è¦æ±‚ã®å ´åˆã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡ºã—ã€ãƒ­ã‚°å‡ºåŠ›
     if ( $searchclass_chk_f == "NG") {
-      print htmlheader("ŒŸõƒGƒ‰[");
-      print "•s³‚ÈƒAƒNƒZƒX‚Å‚·Bî•ñ‹æ•ª‚ÍŒÂl‚Å•\¦‚³‚ê‚Ä‚¢‚é‚à‚ÌˆÈŠO‚Íw’è‚Å‚«‚Ü‚¹‚ñB";
-      $result = "•s³ƒAƒNƒZƒX";
-      $comment = "•s³‚Èî•ñƒNƒ‰ƒX‚Å‚ÌƒAƒNƒZƒX‚ª‚ ‚è‚Ü‚µ‚½Bî•ñ‹æ•ª: ";
+      print htmlheader("æ¤œç´¢ã‚¨ãƒ©ãƒ¼");
+      print "ä¸æ­£ãªã‚¢ã‚¯ã‚»ã‚¹ã§ã™ã€‚æƒ…å ±åŒºåˆ†ã¯å€‹äººã§è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ä»¥å¤–ã¯æŒ‡å®šã§ãã¾ã›ã‚“ã€‚";
+      $result = "ä¸æ­£ã‚¢ã‚¯ã‚»ã‚¹";
+      $comment = "ä¸æ­£ãªæƒ…å ±ã‚¯ãƒ©ã‚¹ã§ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒã‚ã‚Šã¾ã—ãŸã€‚æƒ…å ±åŒºåˆ†: ";
       for ( $i=0 ; $i < sizeof($get_searchclass);$i++) { 
         $comment .=  $get_searchclass[$i] . ";" ;
       }
@@ -303,49 +303,49 @@ function body_keysearch_any(
       exit();
     }
 
-    //ŒŸõŒ‹‰Ê‚ÌƒƒbƒZ[ƒWì¬
-    $resultmes = "î•ñ‹æ•ªF"; 
+    //æ¤œç´¢çµæœã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä½œæˆ
+    $resultmes = "æƒ…å ±åŒºåˆ†ï¼š"; 
     if (strlen($keyword) == 0 ) {
-      if ( isset($searchclass[0]) ) { //ƒJƒeƒSƒŠ‚ğŒŸõ‚µ‚½ƒL[ƒ[ƒh‚È‚µ‚Ìê‡
+      if ( isset($searchclass[0]) ) { //ã‚«ãƒ†ã‚´ãƒªã‚’æ¤œç´¢ã—ãŸã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãªã—ã®å ´åˆ
         $kw_opt = "ALL";
         for ($i = 0; $i < sizeof($searchclass); $i++) {
-          $resultmes .= "u" . $searchclass[$i] . "v"; 
+          $resultmes .= "ã€Œ" . $searchclass[$i] . "ã€"; 
         }
-        $resultmes .= "‚Å";
-        $result = "•”•ª•\¦";
+        $resultmes .= "ã§";
+        $result = "éƒ¨åˆ†è¡¨ç¤º";
       } else {
-        $resultmes .= "@‘SŒ‚Å";
-        $result = "‘SŒ•\¦";
+        $resultmes .= "ã€€å…¨ä»¶ã§";
+        $result = "å…¨ä»¶è¡¨ç¤º";
       }
-      $result = "‘SŒ•\¦";
+      $result = "å…¨ä»¶è¡¨ç¤º";
       if ( $log_write_flg == "on" ) {
         logw($userid,$dispname,$scene,$searchtype,$result,$tcnt,$keyword_org,$categid,$regdate,$comment);
       }
       
     } else { 
-      //ƒL[ƒ[ƒh‚ğ•\¦‚·‚ébody‚ğ¶¬
+      //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹bodyã‚’ç”Ÿæˆ
       $kw_opt = "";
       for ($i = 0; $i < sizeof($searchclass); $i++) {
-        $resultmes .= "u" . $searchclass[$i] . "v"; 
+        $resultmes .= "ã€Œ" . $searchclass[$i] . "ã€"; 
       }
-      $resultmes .= "@ƒL[ƒ[ƒhFu" . $keyword_org . "v‚Å";
+      $resultmes .= "ã€€ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ï¼šã€Œ" . $keyword_org . "ã€ã§";
     }
 
 
   }
   //dp(searchtype,$searchtype);
 
-  //ŒŸõ‚Ìí—Ş‚É‰‚¶‚ÄWHEREğŒ‚ğ‘g‚İ—§‚Ä
+  //æ¤œç´¢ã®ç¨®é¡ã«å¿œã˜ã¦WHEREæ¡ä»¶ã‚’çµ„ã¿ç«‹ã¦
   switch ($searchtype) {
 
-    //ƒL[ƒ[ƒhŒŸõ‚ÌWHERE
+    //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢ã®WHERE
     case "kw":
 
       $research_opt = "infoclass=" . $infoclass . "&dispclass=". $dispclass . "&keyword=". $keyword;
 
-      //ƒL[ƒ[ƒh‹ó”’‚Ìê‡A‘SŒ•\¦
+      //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ç©ºç™½ã®å ´åˆã€å…¨ä»¶è¡¨ç¤º
       if ( $kw_opt == "ALL" ) { 
-        $where = " WHERE ((infoavaflg != 'íœ') and ";
+        $where = " WHERE ((infoavaflg != 'å‰Šé™¤') and ";
 
         $where .= "(";
         for ($i = 0; $i < sizeof($searchclass); $i++) {
@@ -360,7 +360,7 @@ function body_keysearch_any(
            
           $class_id_v = $colcl['class_id'];
           
-          if ( $searchclass[$i] == "ŒÂl" ) {
+          if ( $searchclass[$i] == "å€‹äºº" ) {
             $where .= " (infoclass = \"$searchclass[$i]\" and regid = \"$usersess\") ";
             $keynaviso .= $searchclass[$i] ;
           }
@@ -371,33 +371,33 @@ function body_keysearch_any(
         }
         $where .= ") )";
 
-      } else { //ƒL[ƒ[ƒh‚ª‹ó”’‚Å‚È‚¯‚ê‚ÎƒL[ƒ[ƒh‚ğ”z—ñ‚ÉŠi”[‚·‚é 
+      } else { //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒç©ºç™½ã§ãªã‘ã‚Œã°ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’é…åˆ—ã«æ ¼ç´ã™ã‚‹ 
 
-        //ƒL[ƒ[ƒh‚©‚çƒGƒXƒP[ƒv•¶š‚ğæ‚èœ‚­
-        //•¶š‰»‚¯‘Î‰‚Ì‚½‚ßƒRƒƒ“ƒgƒAƒEƒg
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‹ã‚‰ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã‚’å–ã‚Šé™¤ã
+        //æ–‡å­—åŒ–ã‘å¯¾å¿œã®ãŸã‚ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆ
         //$keyword = stripcslashes($keyword);
 
-        //ƒL[ƒ[ƒh‚Ì‘OŒã‚ÌƒXƒy[ƒX‚ğæ‚èœ‚­
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®å‰å¾Œã®ã‚¹ãƒšãƒ¼ã‚¹ã‚’å–ã‚Šé™¤ã
         $keyword = trim($keyword);
       
-        //‘SŠpƒXƒy[ƒX‚Ì”¼Šp•ÏŠ·‚Æ”¼ŠpƒJƒi‚Ì‘SŠp•ÏŠ·
+        //å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã®åŠè§’å¤‰æ›ã¨åŠè§’ã‚«ãƒŠã®å…¨è§’å¤‰æ›
         $keyword = mb_convert_kana($keyword, "sKV", "SJIS");
 
-        //”¼Šp•¶š‚Ì‘SŠp•¶š‰»A‘SŠp•¶š‚Ì”¼Šp•¶š‰»‚ğŒŸõ‘ÎÛ‚Æ‚µ‚Ä’Ç‰Á(2017.9.9’Ç‰Áj
+        //åŠè§’æ–‡å­—ã®å…¨è§’æ–‡å­—åŒ–ã€å…¨è§’æ–‡å­—ã®åŠè§’æ–‡å­—åŒ–ã‚’æ¤œç´¢å¯¾è±¡ã¨ã—ã¦è¿½åŠ (2017.9.9è¿½åŠ ï¼‰
         $keyword_h = mb_convert_kana($keyword, "a", "SJIS");
         $keyword_z = mb_convert_kana($keyword, "A", "SJIS");
         
-        //ƒL[ƒ[ƒh‚ğƒJƒ“ƒ}‚©ƒXƒy[ƒX‚Å•ª‰ğ‚µ‚Ä”z—ñ‚É‘ã“ü
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’ã‚«ãƒ³ãƒã‹ã‚¹ãƒšãƒ¼ã‚¹ã§åˆ†è§£ã—ã¦é…åˆ—ã«ä»£å…¥
         if(!strrchr($keyword, " ")){
 
-          //ƒL[ƒ[ƒh‚É”¼ŠpƒXƒy[ƒX‚ªŠÜ‚Ü‚ê‚Ä‚¢‚È‚¢ê‡
-          $keyword = str_replace("A", ",", $keyword);
-          $keyword_h = str_replace("A", ",", $keyword_h);
-          $keyword_z = str_replace("A", ",", $keyword_z);
+          //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒå«ã¾ã‚Œã¦ã„ãªã„å ´åˆ
+          $keyword = str_replace("ã€", ",", $keyword);
+          $keyword_h = str_replace("ã€", ",", $keyword_h);
+          $keyword_z = str_replace("ã€", ",", $keyword_z);
 
-          $keyword = str_replace("C", ",", $keyword);
-          $keyword_h = str_replace("C", ",", $keyword_h);
-          $keyword_z = str_replace("C", ",", $keyword_z);
+          $keyword = str_replace("ï¼Œ", ",", $keyword);
+          $keyword_h = str_replace("ï¼Œ", ",", $keyword_h);
+          $keyword_z = str_replace("ï¼Œ", ",", $keyword_z);
 
           $arykey = explode(",", $keyword);
           $arykey_h = explode(",", $keyword_h);
@@ -407,7 +407,7 @@ function body_keysearch_any(
 
         } else {
 
-          //ƒL[ƒ[ƒh‚É”¼ŠpƒXƒy[ƒX‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡
+          //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆ
           $arykey = explode(" ", $keyword);
           $arykey_h = explode(" ", $keyword_h);
           $arykey_z = explode(" ", $keyword_z);
@@ -416,20 +416,20 @@ function body_keysearch_any(
 
         }
 
-        //•ª‰ğ‚³‚ê‚½ŠeƒL[ƒ[ƒh‚ª‹ó‚Å‚È‚¢‚©ƒ`ƒFƒbƒN
+        //åˆ†è§£ã•ã‚ŒãŸå„ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒç©ºã§ãªã„ã‹ãƒã‚§ãƒƒã‚¯
         for ($i = 0; $i < sizeof($arykey); $i++) {
           if (strlen($arykey[$i]) == 0) {
-            //•ª‰ğ‚³‚ê‚½ƒL[ƒ[ƒh‚Ì‚¢‚¸‚ê‚©‚ª‹ó‚Ìê‡
-            $body .= "ƒL[ƒ[ƒh‚Ìw’è‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñI
-                  <INPUT id='button_m' type='button' value='ŒŸõ‚Ö–ß‚é'
+            //åˆ†è§£ã•ã‚ŒãŸã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®ã„ãšã‚Œã‹ãŒç©ºã®å ´åˆ
+            $body .= "ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®æŒ‡å®šãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼
+                  <INPUT id='button_m' type='button' value='æ¤œç´¢ã¸æˆ»ã‚‹'
                   onclick='window.location=\"searchmenu.php\"'>";
-            print htmlheader("ŒŸõŒ‹‰Ê") .  $body . $infodiv_body . $searchwindow . htmlfooter();
+            print htmlheader("æ¤œç´¢çµæœ") .  $body . $infodiv_body . $searchwindow . htmlfooter();
             exit();
           }
         }
 
-        //ƒL[ƒ[ƒhŒŸõ‚ÌWHERE‹å‚ğì¬(ŠJn)
-        $where = " WHERE ((infoavaflg != 'íœ') and ";
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢ã®WHEREå¥ã‚’ä½œæˆ(é–‹å§‹)
+        $where = " WHERE ((infoavaflg != 'å‰Šé™¤') and ";
 
         $where .= "(";
         for ($i = 0; $i < sizeof($searchclass); $i++) {
@@ -445,7 +445,7 @@ function body_keysearch_any(
           $class_id_v = $colcl['class_id'];
 
           $search_class = $searchclass[$i];
-          if ( $searchclass[$i] == "ŒÂl" ) {
+          if ( $searchclass[$i] == "å€‹äºº" ) {
             $where .= " (infoclass = \"$searchclass[$i]\" and regid = \"$usersess\") ";
             $keynaviso .= $searchclass[$i] ;
           }
@@ -456,7 +456,7 @@ function body_keysearch_any(
 
         $where .= ") and (";
           
-        $where .= "( "; //ƒL[ƒ[ƒh‚ÌŒŸõ—pwhere‹å¶¬
+        $where .= "( "; //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®æ¤œç´¢ç”¨whereå¥ç”Ÿæˆ
 
         for ($i = 0; $i < sizeof($arykey); $i++) {
           if ($i > 0 ) {
@@ -475,7 +475,7 @@ function body_keysearch_any(
 
           }
  
-        $where .= ") or ( ";  //”¼Šp•ÏŠ·‚µ‚½ƒL[ƒ[ƒh‚Å‚ÌŒŸõ—pwhere‹å¶¬
+        $where .= ") or ( ";  //åŠè§’å¤‰æ›ã—ãŸã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã§ã®æ¤œç´¢ç”¨whereå¥ç”Ÿæˆ
 
         for ($i = 0; $i < sizeof($arykey_h); $i++) {
           if ($i > 0 ) {
@@ -494,7 +494,7 @@ function body_keysearch_any(
 
           }
 
-        $where .= ") or ( "; //‘SŠp•ÏŠ·‚µ‚½ƒL[ƒ[ƒh‚Å‚ÌŒŸõ—pwhere‹å¶¬
+        $where .= ") or ( "; //å…¨è§’å¤‰æ›ã—ãŸã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã§ã®æ¤œç´¢ç”¨whereå¥ç”Ÿæˆ
 
         for ($i = 0; $i < sizeof($arykey_z); $i++) {
           if ($i > 0 ) {
@@ -516,21 +516,21 @@ function body_keysearch_any(
           $where .= ") ";
 
           $where .= "))";
-          //ƒL[ƒ[ƒhŒŸõ‚ÌWHERE‹å‚ğì¬(I—¹)
+          //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢ã®WHEREå¥ã‚’ä½œæˆ(çµ‚äº†)
         }
  
       break;
 
-    //ƒNƒŠƒbƒN—š—ğŒŸõ‚ÌWHERE
+    //ã‚¯ãƒªãƒƒã‚¯å±¥æ­´æ¤œç´¢ã®WHERE
     case "cr":
 
       $research_opt = "&click_rireki=" . $click_rireki ;
 
-      //—š—ğ•\¦Œ”
+      //å±¥æ­´è¡¨ç¤ºä»¶æ•°
       $rc = 5;
       
-      $sql = "SELECT * FROM tblsearchlog WHERE ( userid = '$userid') and  ( scene = 'ƒŠƒ“ƒNƒNƒŠƒbƒN') ORDER BY serno  desc LIMIT 0,$rc";
-      $sqlcnt = "SELECT Count(*) AS cnt from tblsearchlog WHERE ( userid = '$userid') and ( scene = 'ƒŠƒ“ƒNƒNƒŠƒbƒN')";
+      $sql = "SELECT * FROM tblsearchlog WHERE ( userid = '$userid') and  ( scene = 'ãƒªãƒ³ã‚¯ã‚¯ãƒªãƒƒã‚¯') ORDER BY serno  desc LIMIT 0,$rc";
+      $sqlcnt = "SELECT Count(*) AS cnt from tblsearchlog WHERE ( userid = '$userid') and ( scene = 'ãƒªãƒ³ã‚¯ã‚¯ãƒªãƒƒã‚¯')";
        
       $mysqli = my_sql_connect_any($db_con_info,"sjis") ; 
 
@@ -559,38 +559,38 @@ function body_keysearch_any(
   }
   //dp(where,$where);
   
-  //•À‚Ñ‡iORDER BYj‚Ì¶¬
+  //ä¸¦ã³é †ï¼ˆORDER BYï¼‰ã®ç”Ÿæˆ
   if (!isset($sorttype) or $sorttype == 1) {
-    //‚Í‚¶‚ß‚ÄŒÄ‚Î‚ê‚½‚Æ‚«‚Ü‚½‚ÍƒJƒeƒSƒŠ‡w’è‚Ì‚Æ‚«
-    //“o˜^“ú‚ÌÅV‡w’è‚É•ÏX ŠÔ‚ğ’Ç‰Á
+    //ã¯ã˜ã‚ã¦å‘¼ã°ã‚ŒãŸã¨ãã¾ãŸã¯ã‚«ãƒ†ã‚´ãƒªé †æŒ‡å®šã®ã¨ã
+    //ç™»éŒ²æ—¥ã®æœ€æ–°é †æŒ‡å®šã«å¤‰æ›´ æ™‚é–“ã‚’è¿½åŠ 
     $orderby = " ORDER BY upddate desc,updtime desc, tblinfo.categoryid, infoid";
   }
   else {
-    //“o˜^“ú‡‚Åw’èiƒfƒtƒHƒ‹ƒgj
-    //ŠÔ‚ğ’Ç‰Á
+    //ç™»éŒ²æ—¥é †ã§æŒ‡å®šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼‰
+    //æ™‚é–“ã‚’è¿½åŠ 
     $orderby = " ORDER BY upddate desc,updtime desc, infoid";
   }
   if ( $click_rireki == "cr" ) {
-    //w’è‚È‚µ‚Ìê‡ serno ‚ğƒ\[ƒg‡‚Éw’è
+    //æŒ‡å®šãªã—ã®å ´åˆ serno ã‚’ã‚½ãƒ¼ãƒˆé †ã«æŒ‡å®š
     $orderby = " ORDER BY serno desc ";
   }
 
   
-  //•À‚Ñ‡‚ÌÄŒŸõ”»’f
+  //ä¸¦ã³é †ã®å†æ¤œç´¢åˆ¤æ–­
   if ( $orderby_opt == click and $click_rireki == "cr" ) {
-    $orderby = " ORDER BY clickcnt desc,infovaluep desc,upddate desc,updtime desc, tblinfo.categoryid, infoid , tblsearchlog.serno desc "; //“¯‚¶ƒNƒŠƒbƒN”‚È‚ç•]‰¿‘½‚¢‡ ‚É‰Á‚¦‚ÄV‚µ‚¢‡
+    $orderby = " ORDER BY clickcnt desc,infovaluep desc,upddate desc,updtime desc, tblinfo.categoryid, infoid , tblsearchlog.serno desc "; //åŒã˜ã‚¯ãƒªãƒƒã‚¯æ•°ãªã‚‰è©•ä¾¡å¤šã„é † ã«åŠ ãˆã¦æ–°ã—ã„é †
   } else if ( $orderby_opt == click ) { 
-    $orderby = " ORDER BY clickcnt desc,infovaluep desc,upddate desc,updtime desc, tblinfo.categoryid, infoid"; //“¯‚¶ƒNƒŠƒbƒN”‚È‚ç•]‰¿‘½‚¢‡
+    $orderby = " ORDER BY clickcnt desc,infovaluep desc,upddate desc,updtime desc, tblinfo.categoryid, infoid"; //åŒã˜ã‚¯ãƒªãƒƒã‚¯æ•°ãªã‚‰è©•ä¾¡å¤šã„é †
   }
 
-  //•À‚Ñ‡‚ÌÄŒŸõ”»’f
+  //ä¸¦ã³é †ã®å†æ¤œç´¢åˆ¤æ–­
   if ( $orderby_opt == valuep ) {
-    //“¯‚¶•]‰¿ƒ|ƒCƒ“ƒg‚È‚çƒNƒŠƒbƒN‘½‚¢‡
+    //åŒã˜è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆãªã‚‰ã‚¯ãƒªãƒƒã‚¯å¤šã„é †
     $orderby = " ORDER BY infovaluep desc,clickcnt desc,upddate desc,updtime desc, tblinfo.categoryid, infoid";  }
 
   if (!isset($page)) {
 
-    //‰‚ß‚ÄŒÄ‚Î‚ê‚½‚Æ‚«‚Í‘Œ”‚ğæ“¾
+    //åˆã‚ã¦å‘¼ã°ã‚ŒãŸã¨ãã¯ç·ä»¶æ•°ã‚’å–å¾—
     $sql = "SELECT Count(*) AS cnt FROM tblinfo" . $where;
 
     if ( $searchtype != "cr" ) {
@@ -600,8 +600,8 @@ function body_keysearch_any(
       //dp(tcnt2,$tcnt);
       mysqli_free_result($rst);
     } else {
-      //—š—ğƒ^ƒCƒv‚Ìê‡‚ÍAƒJƒEƒ“ƒg‚ÌSQL‚ğ•ÏX
-      $sqlcnt = "SELECT Count(*) AS cnt from tblsearchlog WHERE (userid = '$userid') and ( scene = 'ƒŠƒ“ƒNƒNƒŠƒbƒN')";
+      //å±¥æ­´ã‚¿ã‚¤ãƒ—ã®å ´åˆã¯ã€ã‚«ã‚¦ãƒ³ãƒˆã®SQLã‚’å¤‰æ›´
+      $sqlcnt = "SELECT Count(*) AS cnt from tblsearchlog WHERE (userid = '$userid') and ( scene = 'ãƒªãƒ³ã‚¯ã‚¯ãƒªãƒƒã‚¯')";
       $rstcnt = $mysqli->query($sqlcnt);
       $colcnt = mysqli_fetch_array($rstcnt);
       $tcnt = $colcnt['cnt'];
@@ -609,24 +609,24 @@ function body_keysearch_any(
       mysqli_free_result($rstcnt);
     }
 
-    //ŠY“–Œ”‚ğƒ`ƒFƒbƒN
+    //è©²å½“ä»¶æ•°ã‚’ãƒã‚§ãƒƒã‚¯
     if ($tcnt == 0) {
 
-      //ƒƒO‘‚«‚İ
-      $result = "ŒŸõƒL[ƒ[ƒh‚È‚µ";
+      //ãƒ­ã‚°æ›¸ãè¾¼ã¿
+      $result = "æ¤œç´¢ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãªã—";
       if ( $log_write_flg == "on" ) {
         logw($userid,$dispname,$scene,$searchtype,$result,$tcnt,$keyword_org,$categid,$regdate,$comment);
       }
-      //http,https,file‚Å‚ ‚ê‚ÎV‹K“o˜^ƒƒjƒ…[‚Ö
+      //http,https,fileã§ã‚ã‚Œã°æ–°è¦ç™»éŒ²ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸
       if ( substr($keyword_org,0,5) == "http:" or substr($keyword_org,0,6) == "https:" or substr($keyword_org,0,5) == "file:") {
 
-        //‘ÎÛƒy[ƒW‚Ìƒ^ƒCƒgƒ‹‚ª‚ ‚ê‚Î‚»‚ê‚ğinfotitle‚É“ü‚êAinfokind‚ğweb‚Å‰Šúİ’è
+        //å¯¾è±¡ãƒšãƒ¼ã‚¸ã®ã‚¿ã‚¤ãƒˆãƒ«ãŒã‚ã‚Œã°ãã‚Œã‚’infotitleã«å…¥ã‚Œã€infokindã‚’webã§åˆæœŸè¨­å®š
         if ( getPageTitle( $keyword_org ) != "" ) {
           $infotitle = curl_get_contents( $keyword_org,60 );
           $infokind = "web";
         }
 
-        //‘ÎÛƒy[ƒW‚Ìƒƒ^ƒ^ƒO‚ª‚ ‚ê‚Î‚»‚ê‚ğinfotag‚É“ü‚ê‰Šúİ’è
+        //å¯¾è±¡ãƒšãƒ¼ã‚¸ã®ãƒ¡ã‚¿ã‚¿ã‚°ãŒã‚ã‚Œã°ãã‚Œã‚’infotagã«å…¥ã‚ŒåˆæœŸè¨­å®š
         $array_tag = get_meta_tags( $keyword_org );
         if ( $array_tag['keywords'] != ""  ) {
           $infotag = htmlspecialchars($array_tag['keywords'], ENT_COMPAT);
@@ -636,37 +636,37 @@ function body_keysearch_any(
           $comment = htmlspecialchars($array_tag['description'], ENT_COMPAT);
           $comment = mb_convert_encoding($comment,'Shift_JIS','auto');
         }
-        $body .= "<br>ŒŸõğŒ‚Éˆê’v‚·‚éî•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B@
-                 <INPUT id='button_m' type='button' value='–ß‚é' 
-                 onclick='history.back()'>@@@<A href='infonew.php?urlinfo=$keyword_org&infotitle=$infotitle&infokind=$infokind&infotag=$infotag&comment=$comment'>“–ƒŠƒ“ƒNî•ñ‚ğV‹K“o˜^</a><br>" . $infodiv_body. $searchwindow ;
+        $body .= "<br>æ¤œç´¢æ¡ä»¶ã«ä¸€è‡´ã™ã‚‹æƒ…å ±ã¯ã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚ã€€
+                 <INPUT id='button_m' type='button' value='æˆ»ã‚‹' 
+                 onclick='history.back()'>ã€€ã€€ã€€<A href='infonew.php?urlinfo=$keyword_org&infotitle=$infotitle&infokind=$infokind&infotag=$infotag&comment=$comment'>å½“ãƒªãƒ³ã‚¯æƒ…å ±ã‚’æ–°è¦ç™»éŒ²</a><br>" . $infodiv_body. $searchwindow ;
 
         $body .= "<meta http-equiv='refresh' content='0; url=infonew.php?urlinfo=$keyword_org&infotitle=$infotitle&infokind=$infokind&infotag=$infotag&comment=$comment'>";
         
       } else {
-        $body .= "<br>ŒŸõğŒ‚Éˆê’v‚·‚éî•ñ‚Í‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B@
-                 <INPUT id='button_m' type='button' value='–ß‚é' 
+        $body .= "<br>æ¤œç´¢æ¡ä»¶ã«ä¸€è‡´ã™ã‚‹æƒ…å ±ã¯ã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚ã€€
+                 <INPUT id='button_m' type='button' value='æˆ»ã‚‹' 
                  onclick='history.back()'>";
-        $infotitle = "ƒL[ƒ[ƒhu" .  $keyword_org . "v ŒŸõ‚µ‚½‚¯‚Ç‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½";
-        $infokind = "–¢•ª—Ş";
-        $infoclass = "‹¤’Ê";
+        $infotitle = "ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã€Œ" .  $keyword_org . "ã€ æ¤œç´¢ã—ãŸã‘ã©ã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸ";
+        $infokind = "æœªåˆ†é¡";
+        $infoclass = "å…±é€š";
         $categoryid = 33;
-        $comment = " ‰½‚ğ’T‚µ‚Ä‚¢‚½‚©ŠÈ’P‚É‹³‚¦‚Ä‚­‚¾‚³‚¢B‰ü‘P‚ÆŒŸõ‚Ìx‰‡‚ğ‚µ‚Ü‚·B" ; 
-        $body .= "@@@<A href='infonew.php?infotitle=$infotitle&infokind=$infokind&infotag=$infotag&comment=$comment&?categoryid=$categoryid'>Œ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½I“o˜^</a><br>";
+        $comment = " ä½•ã‚’æ¢ã—ã¦ã„ãŸã‹ç°¡å˜ã«æ•™ãˆã¦ãã ã•ã„ã€‚æ”¹å–„ã¨æ¤œç´¢ã®æ”¯æ´ã‚’ã—ã¾ã™ã€‚" ; 
+        $body .= "ã€€ã€€ã€€<A href='infonew.php?infotitle=$infotitle&infokind=$infokind&infotag=$infotag&comment=$comment&?categoryid=$categoryid'>è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸï¼ç™»éŒ²</a><br>";
         $body .= $infodiv_body . $searchwindow ;
 
       } 
 
       $search_result = "nothing";
     }
-    //Œ»İƒy[ƒW‚ğ‰Šúİ’è
+    //ç¾åœ¨ãƒšãƒ¼ã‚¸ã‚’åˆæœŸè¨­å®š
     $page = 1;
   }
 
   if ($search_result != "nothing") {
-  //‘ƒy[ƒW”‚ğŒvZ
+  //ç·ãƒšãƒ¼ã‚¸æ•°ã‚’è¨ˆç®—
   $totalpage = ceil($tcnt / $PAGESIZE);
 
-  //ƒy[ƒWã•”‚Ì•\¦‚ğ‘g‚İ—§‚Ä
+  //ãƒšãƒ¼ã‚¸ä¸Šéƒ¨ã®è¡¨ç¤ºã‚’çµ„ã¿ç«‹ã¦
   $body .= "<SCRIPT language='JavaScript'><!--
             function EditExec(infoid) {
               document.mainfrm_" . $host_name . ".action = 'infoupd.php';
@@ -674,7 +674,7 @@ function body_keysearch_any(
               document.mainfrm_" . $host_name . ".submit();
             }
             function DeleteCheck(infoid) {
-              if(confirm('–{“–‚Éíœ‚µ‚Ä‚¢‚¢‚Å‚·‚©H')){
+              if(confirm('æœ¬å½“ã«å‰Šé™¤ã—ã¦ã„ã„ã§ã™ã‹ï¼Ÿ')){
                 document.mainfrm_" . $host_name . ".action = 'infoupdexec.php';
                 document.mainfrm_" . $host_name . ".infoid.value = infoid;
                 document.mainfrm_" . $host_name . ".proc.value = 'del';
@@ -684,52 +684,52 @@ function body_keysearch_any(
             // --></SCRIPT>";
 
  
-//  $body .= $resultmes . "@$tcnt Œ‚Ìî•ñ‚ª“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B ";
-  $body .= "<p align='left'>" . $resultmes . "@$tcnt Œ‚Ìî•ñ‚ª“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B ";
+//  $body .= $resultmes . "ã€€$tcnt ä»¶ã®æƒ…å ±ãŒç™»éŒ²ã•ã‚Œã¦ã„ã¾ã™ã€‚ ";
+  $body .= "<p align='left'>" . $resultmes . "ã€€$tcnt ä»¶ã®æƒ…å ±ãŒç™»éŒ²ã•ã‚Œã¦ã„ã¾ã™ã€‚ ";
   $body .= "[" . ($PAGESIZE * ($page - 1) + 1) . "-";
 
   if ($page < $totalpage) {
-    //ÅIƒy[ƒW‚æ‚è‘O‚Ìƒy[ƒW‚Ì‚Æ‚«
-    $body .= ($PAGESIZE * $page) . "] ‚ğ•\¦B<br>";
+    //æœ€çµ‚ãƒšãƒ¼ã‚¸ã‚ˆã‚Šå‰ã®ãƒšãƒ¼ã‚¸ã®ã¨ã
+    $body .= ($PAGESIZE * $page) . "] ã‚’è¡¨ç¤ºã€‚<br>";
   }
   else {
-    //ÅIƒy[ƒW‚Ì‚Æ‚«
-    $body .= "$tcnt] ‚ğ•\¦B<br>";
+    //æœ€çµ‚ãƒšãƒ¼ã‚¸ã®ã¨ã
+    $body .= "$tcnt] ã‚’è¡¨ç¤ºã€‚<br>";
   }
   $body .= "</p>";
 
-  //‚Pƒy[ƒW•ª‚¾‚¯’Šo‚·‚éSQL•¶‚ğ‘g‚İ—§‚Ä
+  //ï¼‘ãƒšãƒ¼ã‚¸åˆ†ã ã‘æŠ½å‡ºã™ã‚‹SQLæ–‡ã‚’çµ„ã¿ç«‹ã¦
   if ( $click_rireki == "cr" ) {
-    //ƒNƒŠƒbƒN—š—ğ•\¦‚Ìê‡
-    //“à•”Œ‹‡‚Ålogƒe[ƒuƒ‹‚Ìˆê•”‚¾‚¯‚ğselect‚µAcomment‚Ì‹£‡–â‘è‚ğ‰ğŒˆ
+    //ã‚¯ãƒªãƒƒã‚¯å±¥æ­´è¡¨ç¤ºã®å ´åˆ
+    //å†…éƒ¨çµåˆã§logãƒ†ãƒ¼ãƒ–ãƒ«ã®ä¸€éƒ¨ã ã‘ã‚’selectã—ã€commentã®ç«¶åˆå•é¡Œã‚’è§£æ±º
     $sql = "SELECT tblinfo.*,tblsearchlog.serno,accdate,acctime
           FROM tblinfo inner join tblsearchlog
-          on tblinfo.infoid=tblsearchlog.infoid where ( userid = '$userid') and  ( scene = 'ƒŠƒ“ƒNƒNƒŠƒbƒN')" .
+          on tblinfo.infoid=tblsearchlog.infoid where ( userid = '$userid') and  ( scene = 'ãƒªãƒ³ã‚¯ã‚¯ãƒªãƒƒã‚¯')" .
           $orderby .
           " LIMIT " . $PAGESIZE * ($page - 1) . ", $PAGESIZE";
   }
   else { 
-  //Vƒo[ƒWƒ‡ƒ“Btblinfo‚Ìcategoryinfo‚ğ‚»‚Ì‚Ü‚Ü—˜—pB
+  //æ–°ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã€‚tblinfoã®categoryinfoã‚’ãã®ã¾ã¾åˆ©ç”¨ã€‚
   $sql = "SELECT * FROM tblinfo " . 
           $where . $orderby .
           " LIMIT " . $PAGESIZE * ($page - 1) . ", $PAGESIZE";
   }
   //dp(sql,$sql);
 
-  //Œ‹‰ÊƒZƒbƒg‚ğæ“¾
+  //çµæœã‚»ãƒƒãƒˆã‚’å–å¾—
   $rst = $mysqli->query($sql);
 
-  //ƒy[ƒW–{•¶‚ğ‘g‚İ—§‚Ä‚Ü‚·
+  //ãƒšãƒ¼ã‚¸æœ¬æ–‡ã‚’çµ„ã¿ç«‹ã¦ã¾ã™
 
-  //ŒŸõ‘‹‚ğ’Ç‰Á
+  //æ¤œç´¢çª“ã‚’è¿½åŠ 
   //$body .= $infodiv_body;
   //$body .= $searchwindow;
 
   $body .= "<FORM name='mainfrm_" . $host_name . "' method='POST'>";
 
-  //ƒy[ƒW‚ÌƒiƒrƒQ[ƒVƒ‡ƒ“‚ğ’Ç‰Á (‹¤’Ê•”j
+  //ãƒšãƒ¼ã‚¸ã®ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ã‚’è¿½åŠ  (å…±é€šéƒ¨ï¼‰
 
-  //ƒy[ƒWƒiƒrƒQ[ƒVƒ‡ƒ“‚Ìƒpƒ‰ƒ[ƒ^‚ğİ’è
+  //ãƒšãƒ¼ã‚¸ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®š
   switch ($searchtype) {
     case "kw":
       $keynavi = "&keyword=" . urlencode($keyword);
@@ -750,24 +750,24 @@ function body_keysearch_any(
     $keynavi .= "&showtype=$showtype";
   }
 
-  // ã•”ƒiƒrƒQ[ƒVƒ‡ƒ“—p‚ÌHTMLì¬
+  // ä¸Šéƒ¨ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã®HTMLä½œæˆ
   $body .= "<p align='left'>";
   if ($page > 1) {
-    //2ƒy[ƒWˆÈ~‚Ìê‡‚Í[æ“ª]‚Æ[‘O]‚ğ•\¦
+    //2ãƒšãƒ¼ã‚¸ä»¥é™ã®å ´åˆã¯[å…ˆé ­]ã¨[å‰]ã‚’è¡¨ç¤º
     $body_navi_1 = "<A href = '$PHP_SELF?page=1&tcnt=$tcnt$keynavi'>&lt;&lt;
-                    æ“ª‚Ö</A>&nbsp;&nbsp;&nbsp;
+                    å…ˆé ­ã¸</A>&nbsp;&nbsp;&nbsp;
                     <A href = '$PHP_SELF?page=" . ($page - 1) . "&tcnt=$tcnt$keynavi'>&lt;
-                    ‘O‚Ì $PAGESIZE Œ</A>&nbsp;&nbsp;&nbsp;
+                    å‰ã® $PAGESIZE ä»¶</A>&nbsp;&nbsp;&nbsp;
                     ";
     $body .= $body_navi_1;
   }
   if ($totalpage > 1 and $page < $totalpage) {
-    //‘S•”‚Å2ƒy[ƒWˆÈã‚ ‚Á‚Ä‚©‚ÂŒ»İ‚ªÅIƒy[ƒW‚æ‚è
-    //‘O‚Ì‚Æ‚«‚Í[Ÿ]‚Æ[ÅŒã]‚ğ•\¦
+    //å…¨éƒ¨ã§2ãƒšãƒ¼ã‚¸ä»¥ä¸Šã‚ã£ã¦ã‹ã¤ç¾åœ¨ãŒæœ€çµ‚ãƒšãƒ¼ã‚¸ã‚ˆã‚Š
+    //å‰ã®ã¨ãã¯[æ¬¡]ã¨[æœ€å¾Œ]ã‚’è¡¨ç¤º
     $body_navi_2 = "<A href = '$PHP_SELF?page=" . ($page + 1) . "&tcnt=$tcnt$keynavi'>
-                    Ÿ‚Ì $PAGESIZE Œ&gt;</A>&nbsp;&nbsp;&nbsp;
+                    æ¬¡ã® $PAGESIZE ä»¶&gt;</A>&nbsp;&nbsp;&nbsp;
                     <A href = '$PHP_SELF?page=$totalpage&tcnt=$tcnt$keynavi'>
-                    ÅŒã‚Ö&gt;&gt;</A>
+                    æœ€å¾Œã¸&gt;&gt;</A>
                     ";
     $body .= $body_navi_2;
   }
@@ -775,44 +775,44 @@ function body_keysearch_any(
 
   if (!isset($showtype) or $showtype == 1) {
 
-    //ƒwƒbƒ_‚Ìì¬
+    //ãƒ˜ãƒƒãƒ€ã®ä½œæˆ
     $body .= "<TABLE><TR>";
-    $body .= "<TH>î•ñ‹æ•ª^<br>ƒJƒeƒSƒŠ</TH>
-              <TH>“à—e</TH>
-              <TH>ƒŠƒ“ƒN</TH>";
+    $body .= "<TH>æƒ…å ±åŒºåˆ†ï¼<br>ã‚«ãƒ†ã‚´ãƒª</TH>
+              <TH>å†…å®¹</TH>
+              <TH>ãƒªãƒ³ã‚¯</TH>";
 
-    //•\¦‚Ìƒpƒ^[ƒ“‚ğ”»’f
+    //è¡¨ç¤ºã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’åˆ¤æ–­
     if ($orderby_opt == click ) {
-      $body .= "<TH><A href=search.php?$research_opt title='XV“ú‚ÌÅV‡‚Å•\¦' >XV“ú‡<br>
-                <A href=search.php?$research_opt&orderby_opt=click title='‰{——”‚Ì‘½‚¢‡‚Å•\¦' >¥‰{——”‡<br>
-                <A href=search.php?$research_opt&orderby_opt=valuep title='•]‰¿‚Ì‘½‚¢‡‚Å•\¦' >•]‰¿”‡
+      $body .= "<TH><A href=search.php?$research_opt title='æ›´æ–°æ—¥ã®æœ€æ–°é †ã§è¡¨ç¤º' >æ›´æ–°æ—¥é †<br>
+                <A href=search.php?$research_opt&orderby_opt=click title='é–²è¦§æ•°ã®å¤šã„é †ã§è¡¨ç¤º' >â–¼é–²è¦§æ•°é †<br>
+                <A href=search.php?$research_opt&orderby_opt=valuep title='è©•ä¾¡ã®å¤šã„é †ã§è¡¨ç¤º' >è©•ä¾¡æ•°é †
                 </TH>";
     } else if ($orderby_opt == valuep ) {
-      $body .= "<TH><A href=search.php?$research_opt title='XV“ú‚ÌÅV‡‚Å•\¦' >XV“ú‡<br>
-                <A href=search.php?$research_opt&orderby_opt=click title='‰{——”‚Ì‘½‚¢‡‚Å•\¦' >‰{——”‡<br>
-                <A href=search.php?$research_opt&orderby_opt=valuep title='•]‰¿‚Ì‘½‚¢‡‚Å•\¦' >¥•]‰¿”‡
+      $body .= "<TH><A href=search.php?$research_opt title='æ›´æ–°æ—¥ã®æœ€æ–°é †ã§è¡¨ç¤º' >æ›´æ–°æ—¥é †<br>
+                <A href=search.php?$research_opt&orderby_opt=click title='é–²è¦§æ•°ã®å¤šã„é †ã§è¡¨ç¤º' >é–²è¦§æ•°é †<br>
+                <A href=search.php?$research_opt&orderby_opt=valuep title='è©•ä¾¡ã®å¤šã„é †ã§è¡¨ç¤º' >â–¼è©•ä¾¡æ•°é †
                 </TH>";
     } else {
-      $body .= "<TH><A href=search.php?$research_opt title='XV“ú‚ÌÅV‡‚Å•\¦' >¥XV“ú‡<br>
-                <A href=search.php?$research_opt&orderby_opt=click title='‰{——”‚Ì‘½‚¢‡‚Å•\¦' >‰{——”‡<br>
-                <A href=search.php?$research_opt&orderby_opt=valuep title='•]‰¿‚Ì‘½‚¢‡‚Å•\¦' >•]‰¿”‡
+      $body .= "<TH><A href=search.php?$research_opt title='æ›´æ–°æ—¥ã®æœ€æ–°é †ã§è¡¨ç¤º' >â–¼æ›´æ–°æ—¥é †<br>
+                <A href=search.php?$research_opt&orderby_opt=click title='é–²è¦§æ•°ã®å¤šã„é †ã§è¡¨ç¤º' >é–²è¦§æ•°é †<br>
+                <A href=search.php?$research_opt&orderby_opt=valuep title='è©•ä¾¡ã®å¤šã„é †ã§è¡¨ç¤º' >è©•ä¾¡æ•°é †
                 </TH>";
     }  
 
     $body .= "<TH>ACT</TH></TR>";
 
 
-    //•]‰¿‚ª‰Ÿ‚³‚ê‚½ê‡‚ÌÄŒŸõğŒ‚ğƒZƒbƒg
+    //è©•ä¾¡ãŒæŠ¼ã•ã‚ŒãŸå ´åˆã®å†æ¤œç´¢æ¡ä»¶ã‚’ã‚»ãƒƒãƒˆ
     $infovaluep_research_opt = $research_opt . "&orderby_opt=valuep";
 
-    //Œ‹‰ÊƒZƒbƒg‚©‚çƒf[ƒ^‚ğƒ‹[ƒv‚Å“Ç‚İ‚İ
+    //çµæœã‚»ãƒƒãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ«ãƒ¼ãƒ—ã§èª­ã¿è¾¼ã¿
     while($col = mysqli_fetch_array($rst)) {
-      //ŠeƒŒƒR[ƒh“à—e‚ğ•\¦‚·‚é•\‚ğ‘g‚İ—§‚Ä
+      //å„ãƒ¬ã‚³ãƒ¼ãƒ‰å†…å®¹ã‚’è¡¨ç¤ºã™ã‚‹è¡¨ã‚’çµ„ã¿ç«‹ã¦
 
-      //2017.9.9’Ç‹L ƒ}ƒbƒvî•ñ‚ÌƒJƒeƒSƒŠ‚¾‚¯‚Å‰½‚à“o˜^‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍA•\¦‘ÎÛŠO‚Æ‚µ‚½ 
+      //2017.9.9è¿½è¨˜ ãƒãƒƒãƒ—æƒ…å ±ã®ã‚«ãƒ†ã‚´ãƒªã ã‘ã§ä½•ã‚‚ç™»éŒ²ã•ã‚Œã¦ã„ãªã„å ´åˆã¯ã€è¡¨ç¤ºå¯¾è±¡å¤–ã¨ã—ãŸ 
       if (( $col['map_flg'] != 1 or ( $col['map_flg'] == 1 and ( $col['infotitle'] != "" or $col['uriinfo'] != "" ))) or $DBNAME != "jportal")  { 
 
-        //ƒL[ƒ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚é‚Æ‚«‚ÍƒJƒeƒSƒŠ‚ÌƒL[ƒ[ƒh‚ğ‘¾š‚É’uŠ·
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹ã¨ãã¯ã‚«ãƒ†ã‚´ãƒªã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’å¤ªå­—ã«ç½®æ›
         $tmpcategoryname = $col['categoryinfo'];
         if ($searchtype == "kw") {
           for ($i = 0; $i < sizeof($arykey); $i++) {
@@ -820,16 +820,16 @@ function body_keysearch_any(
           }
         }
  
-        //ƒ^ƒCƒgƒ‹Aí•ÊAƒ^ƒO‚æ‚èî•ñ“à—e–{•¶‚ğì¬
+        //ã‚¿ã‚¤ãƒˆãƒ«ã€ç¨®åˆ¥ã€ã‚¿ã‚°ã‚ˆã‚Šæƒ…å ±å†…å®¹æœ¬æ–‡ã‚’ä½œæˆ
         $tmpcomment = "";
         if (strlen($col['infotitle']) > 0 ) {
           $tmpcomment .= $col['infotitle'] . "<br><br>";
         }
 
-        //url‚Ì/•ÏŠ·
-        $uriinfo = str_replace('_','/', $uriinfo);
+        //urlã®/å¤‰æ›
+        $uriinfo = str_replace('ï¼¼','/', $uriinfo);
  
-        //\\A\‚Ì•ÏŠ·ˆ—  \\‚ÌƒŠƒ“ƒN‚Ìê‡\‚ğ•ÏŠ·
+        //\\ã€\ã®å¤‰æ›å‡¦ç†  \\ã®ãƒªãƒ³ã‚¯ã®å ´åˆ\ã‚’å¤‰æ›
         if ( substr($urlinfo,0,1) == "\\" ) {
           $urlinfo =  str_replace("\\\\","file://", $urlinfo); 
           $urlinfo =  str_replace("\\","/", $urlinfo);
@@ -838,8 +838,8 @@ function body_keysearch_any(
           $urlinfo =  "file:///" .  $urlinfo; 
         }  
 
-        //î•ñ‚ÌƒAƒCƒRƒ“•\¦FƒJƒeƒSƒŠ‚É•\¦
-        if ((strlen($col['infokind']) > 0) and ($col['infokind'] != '–¢•ª—Ş' )) {
+        //æƒ…å ±ã®ã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºï¼šã‚«ãƒ†ã‚´ãƒªã«è¡¨ç¤º
+        if ((strlen($col['infokind']) > 0) and ($col['infokind'] != 'æœªåˆ†é¡' )) {
           $imgfilename = imgchk($col['infokind'],$imgfilename);
           if ( $col['uriinfo'] != "" ) {
 
@@ -853,8 +853,8 @@ function body_keysearch_any(
           }  
         }
 
-        //î•ñ‚ÌƒAƒCƒRƒ“•\¦F‹æ•ª•\¦‚·‚éê‡B‹¤’Ê‹æ•ªˆÈŠO‚ÍƒƒbƒNƒ}[ƒN•\¦B
-        if ($col['infoclass'] != "‹¤’Ê" ) {
+        //æƒ…å ±ã®ã‚¢ã‚¤ã‚³ãƒ³è¡¨ç¤ºï¼šåŒºåˆ†è¡¨ç¤ºã™ã‚‹å ´åˆã€‚å…±é€šåŒºåˆ†ä»¥å¤–ã¯ãƒ­ãƒƒã‚¯ãƒãƒ¼ã‚¯è¡¨ç¤ºã€‚
+        if ($col['infoclass'] != "å…±é€š" ) {
           if ( $col['uriinfo'] != "" ) {
             if ( substr($col['uriinfo'],0,5) == "http:") {  
               $tmpcategoryname .= "<br>" . "<A href=urilink.php?infoid=$col[infoid] target='_blank'><img src='lock16.png'> " ;
@@ -866,33 +866,33 @@ function body_keysearch_any(
           }
         }
 
-        // ƒCƒ[ƒW‚ª‚ ‚ê‚ÎƒAƒCƒRƒ“‚ğ’Ç‰Á‚µAƒNƒŠƒbƒN‚µ‚Ä•\¦‰Â”\
+        // ã‚¤ãƒ¡ãƒ¼ã‚¸ãŒã‚ã‚Œã°ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¿½åŠ ã—ã€ã‚¯ãƒªãƒƒã‚¯ã—ã¦è¡¨ç¤ºå¯èƒ½
         if ($col[infofilename] != "noimage.jpg" ) {
           $tmpcategoryname .= "<br><A href='$PICTUREDIR$col[infofilename]' target='_blank'>
                         <IMG src='image/picture.png'>";
         }
 
-        //ƒRƒƒ“ƒg‚ÌHTML¶¬
+        //ã‚³ãƒ¡ãƒ³ãƒˆã®HTMLç”Ÿæˆ
         $tmpcomment .=  $col['comment'] ;
 
         if (strlen($col['infotag']) > 0 ) {
-          $tmpcomment .= "<br><br>ƒ^ƒOF" .  $col['infotag'];
+          $tmpcomment .= "<br><br>ã‚¿ã‚°ï¼š" .  $col['infotag'];
         } 
 
-        //ƒL[ƒ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚é‚Æ‚«‚Íî•ñ“à—e‚ÌƒL[ƒ[ƒh‚ğ‘¾š‚É’uŠ·
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹ã¨ãã¯æƒ…å ±å†…å®¹ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’å¤ªå­—ã«ç½®æ›
         if ($searchtype == "kw") {
           for ($i = 0; $i < sizeof($arykey); $i++) {
             $tmpcomment = ereg_replace(preg_quote($arykey[$i]), "<B>". "\\0" . "</B>", $tmpcomment);
           }
         }
 
-        //ƒtƒ@ƒCƒ‹ƒf[ƒ^‚ª‚ ‚ê‚Î‚»‚ÌƒŠƒ“ƒN‚ğ’Ç‰Á
+        //ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°ãã®ãƒªãƒ³ã‚¯ã‚’è¿½åŠ 
         if (strlen($col['filedataname_int']) <> 0 ) {
           $filedataurl = $host_url . "/" . $FILEDATADIR . $col['filedataname_int'];
           $tmpcomment .= "<br>" .  "<A href='filedataurl' target='_blank' >" . $col['filedataname'] . "</A>";
         } 
 
-        //ƒL[ƒ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚é‚Æ‚«‚ÍURL‚ÌƒL[ƒ[ƒh‚ğ‘¾š‚É’uŠ·
+        //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹ã¨ãã¯URLã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’å¤ªå­—ã«ç½®æ›
         $tmpuriinfo = $col['uriinfo'];
         if ($searchtype == "kw") {
           for ($i = 0; $i < sizeof($arykey); $i++) {
@@ -900,14 +900,14 @@ function body_keysearch_any(
           }
         }
 
-        // î•ñ‹æ•ªAƒJƒeƒSƒŠ–¼‚ğ•\¦
+        // æƒ…å ±åŒºåˆ†ã€ã‚«ãƒ†ã‚´ãƒªåã‚’è¡¨ç¤º
         $body .= "<TR>";
         $body .= "<TD width='100' align='left' valign='top' >$col[infoclass]/<br>$tmpcategoryname</TD>";
 
-        //‰üsƒR[ƒh‚ğBRƒ^ƒO‚É’uŠ·
+        //æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’BRã‚¿ã‚°ã«ç½®æ›
         $tmpcomment = nl2br($tmpcomment);
 
-        //ŠÈˆÕƒ‚[ƒhê‡A•\¦“à—e‚ği‚è‚İ
+        //ç°¡æ˜“ãƒ¢ãƒ¼ãƒ‰å ´åˆã€è¡¨ç¤ºå†…å®¹ã‚’çµã‚Šè¾¼ã¿
        if ($opt_ser_disp_lev == "simple" ) {
          $tmpcomment_full = $tmpcomment;
          $tmpcomment_array = str_split($tmpcomment,240);
@@ -915,13 +915,13 @@ function body_keysearch_any(
 
          if ( isset($tmpcomment_array[1]) ) {
            $tmpcomment_full =  strip_tags($tmpcomment_full);
-           $tmpcomment .= "@<A href='infodisplay.php?infoid=$col[infoid]' title='$tmpcomment_full' target='_blank'>¥¥‚³‚ç‚ÉÚ×</A>";
+           $tmpcomment .= "ã€€<A href='infodisplay.php?infoid=$col[infoid]' title='$tmpcomment_full' target='_blank'>ï½¥ï½¥ã•ã‚‰ã«è©³ç´°</A>";
          } 
        }
 
        $body .= "<TD width='670' align='left' valign='top' style='word-break:break-all'>$tmpcomment</TD>";
        if ( $tmpuriinfo != null ) {
-         $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'><A href=urilink.php?infoid=$col[infoid] target='_blank' title=$tmpuriinfo>ƒNƒŠƒbƒN</A>";
+         $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'><A href=urilink.php?infoid=$col[infoid] target='_blank' title=$tmpuriinfo>ã‚¯ãƒªãƒƒã‚¯</A>";
        } else {
          $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'>";
        }   
@@ -932,46 +932,46 @@ function body_keysearch_any(
                 
        $body .= "</TD>";
 
-       //ƒNƒŠƒbƒNA•]‰¿ƒ|ƒCƒ“ƒg•\¦ƒZƒNƒVƒ‡ƒ“(S)
+       //ã‚¯ãƒªãƒƒã‚¯ã€è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤ºã‚»ã‚¯ã‚·ãƒ§ãƒ³(S)
 
-       //ƒNƒŠƒbƒN”‚ª‚ ‚éê‡‚Í•\¦
+       //ã‚¯ãƒªãƒƒã‚¯æ•°ãŒã‚ã‚‹å ´åˆã¯è¡¨ç¤º
        if ( $col[clickcnt] != 0 ) {
-         //•]‰¿ƒ|ƒCƒ“ƒg‚ª‚ ‚éê‡‚Í•\¦
+         //è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆãŒã‚ã‚‹å ´åˆã¯è¡¨ç¤º
          if ( $col[infovaluep] != 0 ) {
            $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'>$col[upddate]<br><br><A href=urilink.php?infoid=$col[infoid] target='_blank'><img src='click16.png'>$col[clickcnt]</A><br>";
            $body .= "<A href=infovalueadd.php?infoid=$col[infoid]&opt=\"$infovaluep_research_opt\" target='_blank'><img src='good16.png'>$col[infovaluep]</A></TD>";
          }
-         //•]‰¿ƒ|ƒCƒ“ƒg‚ª‚È‚¢ê‡
+         //è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆãŒãªã„å ´åˆ
          else {
            $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'>$col[upddate]<br><br><A href=urilink.php?infoid=$col[infoid] target='_blank'><img src='click16.png'>$col[clickcnt]</A><br>";
            $body .= "<A href=infovalueadd.php?infoid=$col[infoid]&opt=\"$infovaluep_research_opt\" target='_blank'><img src='good16.png'></A></TD>";
          }
        }
-       //ƒNƒŠƒbƒN”‚ª‚È‚¢ê‡
+       //ã‚¯ãƒªãƒƒã‚¯æ•°ãŒãªã„å ´åˆ
        else {
-         //•]‰¿ƒ|ƒCƒ“ƒg‚ª‚ ‚éê‡‚Í•\¦
+         //è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆãŒã‚ã‚‹å ´åˆã¯è¡¨ç¤º
          if ( $col[infovaluep] != 0 ) {
            $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'>$col[upddate]<br><br>";
            $body .= "<A href=infovalueadd.php?infoid=$col[infoid]&opt=\"$infovaluep_research_opt\" target='_blank'><img src='good16.png'>$col[infovaluep]</A></TD>";
          }
-         //•]‰¿ƒ|ƒCƒ“ƒg‚ª‚È‚¢ê‡
+         //è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆãŒãªã„å ´åˆ
          else {
            $body .= "<TD width='78' align='left' valign='top' style='word-break:break-all'>$col[upddate]<br><br>";
            $body .= "<A href=infovalueadd.php?infoid=$col[infoid]&opt=\"$infovaluep_research_opt\" target='_blank'><img src='good16.png'></A></TD>";
          }
        }
 
-       //ƒNƒŠƒbƒNA•]‰¿ƒ|ƒCƒ“ƒg•\¦ƒZƒNƒVƒ‡ƒ“(E)
+       //ã‚¯ãƒªãƒƒã‚¯ã€è©•ä¾¡ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤ºã‚»ã‚¯ã‚·ãƒ§ãƒ³(E)
 
        $body .= "<TD width='24' valign='top'>
-                <INPUT id='button_sm' type='button' value='•ÒW' onclick='EditExec(\"$col[infoid]\");'>
-                <INPUT id='button_sm' type='button' value='íœ' onclick='DeleteCheck(\"$col[infoid]\");'><br>
-                <A href=infodisplay.php?infoid=$col[infoid] target='_blank'>Ú×</a>
+                <INPUT id='button_sm' type='button' value='ç·¨é›†' onclick='EditExec(\"$col[infoid]\");'>
+                <INPUT id='button_sm' type='button' value='å‰Šé™¤' onclick='DeleteCheck(\"$col[infoid]\");'><br>
+                <A href=infodisplay.php?infoid=$col[infoid] target='_blank'>è©³ç´°</a>
                 </TD></TR>";
 
-      } //2017.9.9’Ç‹L ƒ}ƒbƒvî•ñ‚ÌƒJƒeƒSƒŠ‚¾‚¯‚Å‰½‚à“o˜^‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍA•\¦‘ÎÛŠO‚Æ‚µ‚½iI’[j
+      } //2017.9.9è¿½è¨˜ ãƒãƒƒãƒ—æƒ…å ±ã®ã‚«ãƒ†ã‚´ãƒªã ã‘ã§ä½•ã‚‚ç™»éŒ²ã•ã‚Œã¦ã„ãªã„å ´åˆã¯ã€è¡¨ç¤ºå¯¾è±¡å¤–ã¨ã—ãŸï¼ˆçµ‚ç«¯ï¼‰
 
-    } //while‚ÌI’[
+    } //whileã®çµ‚ç«¯
 
     $body .= "</TABLE>
             <INPUT type='hidden' name='infoid'>
@@ -987,19 +987,19 @@ function body_keysearch_any(
 
     }
 
-    //Œ‹‰ÊƒZƒbƒg‚ğ”jŠü‚µ‚Ü‚·
+    //çµæœã‚»ãƒƒãƒˆã‚’ç ´æ£„ã—ã¾ã™
     mysqli_free_result($rst);
 
-    //ŒŸõƒL[ƒ[ƒh(‚ ‚Á‚½ê‡j‚ÌƒƒO‘‚«‚İ‚ğ’Ç‰Á
-    $result = "ŒŸõƒqƒbƒg";
-    $scene  = "‰Šú‰æ–Ê•\¦";
+    //æ¤œç´¢ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰(ã‚ã£ãŸå ´åˆï¼‰ã®ãƒ­ã‚°æ›¸ãè¾¼ã¿ã‚’è¿½åŠ 
+    $result = "æ¤œç´¢ãƒ’ãƒƒãƒˆ";
+    $scene  = "åˆæœŸç”»é¢è¡¨ç¤º";
     if ( $log_write_flg == "on" ) {
       logw($userid,$dispname,$scene,$searchtype,$result,$tcnt,$keyword_org,$categid,$regdate,$comment);
     }
-    //MySQL‚Æ‚ÌÚ‘±‚ğ‰ğœ‚µ‚Ü‚·
+    //MySQLã¨ã®æ¥ç¶šã‚’è§£é™¤ã—ã¾ã™
     $mysqli->close();
 
-    //ƒy[ƒW‚ÌƒiƒrƒQ[ƒVƒ‡ƒ“‚ğ’Ç‰Á(ã•”‹¤’Êj
+    //ãƒšãƒ¼ã‚¸ã®ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ã‚’è¿½åŠ (ä¸Šéƒ¨å…±é€šï¼‰
     $body .= "<p align='left'>";
     if ($page > 1) {
       $body .= $body_navi_1;
@@ -1010,7 +1010,7 @@ function body_keysearch_any(
     $body .= "</p>";
 
   }
-  $body .= "<p align='left'><a href='#'>‚±‚Ìƒy[ƒW‚Ìæ“ª‚Ö</a></p></div>";
+  $body .= "<p align='left'><a href='#'>ã“ã®ãƒšãƒ¼ã‚¸ã®å…ˆé ­ã¸</a></p></div>";
 
   return $body;
 }
@@ -1018,12 +1018,12 @@ function body_keysearch_any(
 
 function per_keyword_disp_any($db_con_info,$host_url,$host_name,$userid,$dispopt,$rireki_cnt) {
 
-  //ƒpƒ‰ƒ[ƒ^ƒIƒvƒVƒ‡ƒ“
-  $dispopt = "per_keyword"; //g‚Á‚Ä‚¢‚È‚¢
+  //ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚ªãƒ—ã‚·ãƒ§ãƒ³
+  $dispopt = "per_keyword"; //ä½¿ã£ã¦ã„ãªã„
 
   $ROWSIZE = 10;
 
-  //MySQL‚ÉÚ‘±‚µ‚Ü‚·
+  //MySQLã«æ¥ç¶šã—ã¾ã™
   $mysqli = my_sql_connect_any($db_con_info,"sjis");
 
   $sql = "SELECT * FROM tblsearchlog WHERE ( userid = '$userid') and ( keyword != '' ) 
@@ -1039,19 +1039,19 @@ function per_keyword_disp_any($db_con_info,$host_url,$host_name,$userid,$dispopt
       }
       </style>";  
 
-  //ƒL[ƒ[ƒh•\¦
+  //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰è¡¨ç¤º
   $body .= "<TABLE id='keytable_" . $host_name . "' >";
   $colnum = 1;
   while($col = mysqli_fetch_array($rst)) {
     if ($colnum == 1) {
       $body .= "<TR>";
     }
-    //ŠeƒŒƒR[ƒh“à—e‚ğ•\¦‚·‚é•\‚ğ‘g‚İ—§‚Ä‚Ü‚·
+    //å„ãƒ¬ã‚³ãƒ¼ãƒ‰å†…å®¹ã‚’è¡¨ç¤ºã™ã‚‹è¡¨ã‚’çµ„ã¿ç«‹ã¦ã¾ã™
     $body .= "<TD align='left' valign='top' style='word-break:break-all'>
                 <A href='search.php?dispclass=STA&keyword=$col[keyword]' target='_blank'>$col[keyword]</A>
                 </TD>";
     if (++$colnum > $ROWSIZE) {
-      //‚Ps•ª•\¦‚µ‚½‚çŸ‚Ìs‚Ö
+      //ï¼‘è¡Œåˆ†è¡¨ç¤ºã—ãŸã‚‰æ¬¡ã®è¡Œã¸
       $body .= "</TR>";
       $colnum = 1;
     }
@@ -1061,27 +1061,27 @@ function per_keyword_disp_any($db_con_info,$host_url,$host_name,$userid,$dispopt
   }
   $body .= "</TABLE>";
 
-  //Œ‹‰ÊƒZƒbƒg‚ğ”jŠü‚µ‚Ü‚·
+  //çµæœã‚»ãƒƒãƒˆã‚’ç ´æ£„ã—ã¾ã™
   mysqli_free_result($rst);
 
-  //MySQL‚Æ‚ÌÚ‘±‚ğ‰ğœ‚µ‚Ü‚·
+  //MySQLã¨ã®æ¥ç¶šã‚’è§£é™¤ã—ã¾ã™
   $mysqli->close();
 
-  //ƒy[ƒW–{•¶‚ğo—Í‚µ‚Ü‚·
+  //ãƒšãƒ¼ã‚¸æœ¬æ–‡ã‚’å‡ºåŠ›ã—ã¾ã™
   return $body;
 
  }
 
 
-//ŒÂl–ˆ‚Ìî•ñ‹æ•ª‚Å‰½‚ª•\¦‘ÎÛ‚Æ‚È‚Á‚Ä‚¢‚é‚©’²‚×A‚»‚ÌHTML‚ğ¶¬
+//å€‹äººæ¯ã®æƒ…å ±åŒºåˆ†ã§ä½•ãŒè¡¨ç¤ºå¯¾è±¡ã¨ãªã£ã¦ã„ã‚‹ã‹èª¿ã¹ã€ãã®HTMLã‚’ç”Ÿæˆ
 function body_search_class_any($host_url,$rireki_type,$perinfoclass,$searchclass) {
 
-  $body = "<table><td  width='60'>";//ƒe[ƒuƒ‹‚Ì1ƒJƒ‰ƒ€–Ú‚Ì•w’è
-  $body .= "<form name='kensaku' action='search.php' method='get'><A href='infoclass_disp_mnt.php' ><font color = 'black'>î•ñ‹æ•ª</font></A></td>";
+  $body = "<table><td  width='60'>";//ãƒ†ãƒ¼ãƒ–ãƒ«ã®1ã‚«ãƒ©ãƒ ç›®ã®å¹…æŒ‡å®š
+  $body .= "<form name='kensaku' action='search.php' method='get'><A href='infoclass_disp_mnt.php' ><font color = 'black'>æƒ…å ±åŒºåˆ†</font></A></td>";
 
-  $body .= "</td><td width='840'>";//ƒe[ƒuƒ‹‚Ì2ƒJƒ‰ƒ€–Ú‚Ì•w’è
+  $body .= "</td><td width='840'>";//ãƒ†ãƒ¼ãƒ–ãƒ«ã®2ã‚«ãƒ©ãƒ ç›®ã®å¹…æŒ‡å®š
 
-  //ŒŸõƒNƒ‰ƒX‚Ì•\¦BODY($search_class_chkjì¬
+  //æ¤œç´¢ã‚¯ãƒ©ã‚¹ã®è¡¨ç¤ºBODY($search_class_chkï¼‰ä½œæˆ
   if ( $rireki_type == "all" ) {
     for ($i = 0; $i < sizeof($perinfoclass); $i++) {
       $search_class_chk .=  "<input type='checkbox' name='searchclass[]' value=$perinfoclass[$i] checked><b>$perinfoclass[$i]</b>";
@@ -1093,9 +1093,9 @@ function body_search_class_any($host_url,$rireki_type,$perinfoclass,$searchclass
     }
   }
   else {
-    //ŒŸõƒNƒ‰ƒX‚Ì‘I‘ğ
+    //æ¤œç´¢ã‚¯ãƒ©ã‚¹ã®é¸æŠ
     for ($i = 0; $i < sizeof($perinfoclass); $i++) {
-      //ŒŸõ‹æ•ª‚Éƒ`ƒFƒbƒN‚³‚ê‚½‚à‚Ì‚Ì”»’è
+      //æ¤œç´¢åŒºåˆ†ã«ãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸã‚‚ã®ã®åˆ¤å®š
       $flg = 0;
       for ($j = 0; $j < sizeof($searchclass); $j++) {
         if ($searchclass[$j] == $perinfoclass[$i] ) {
@@ -1111,26 +1111,26 @@ function body_search_class_any($host_url,$rireki_type,$perinfoclass,$searchclass
     }
   }
 
-  $body .= $search_class_chk;//ŒŸõƒNƒ‰ƒX‚Ì•\¦BODY•t—^
-  $body .= "<br><A href='searchmenu.php?rireki_type=all'><font color = 'black'>‘Sƒ`ƒFƒbƒN</A>@@<A href='searchmenu.php?rireki_type=clear'><font color = 'black'>‘SƒNƒŠƒA</A>";
+  $body .= $search_class_chk;//æ¤œç´¢ã‚¯ãƒ©ã‚¹ã®è¡¨ç¤ºBODYä»˜ä¸
+  $body .= "<br><A href='searchmenu.php?rireki_type=all'><font color = 'black'>å…¨ãƒã‚§ãƒƒã‚¯</A>ã€€ã€€<A href='searchmenu.php?rireki_type=clear'><font color = 'black'>å…¨ã‚¯ãƒªã‚¢</A>";
 
-  $body .=  "@@@<input id = 'button_sm' value='•ÏX' type='submit'>";
+  $body .=  "ã€€ã€€ã€€<input id = 'button_sm' value='å¤‰æ›´' type='submit'>";
 
   $body .= "</td></table>";
 
   return array($body,$search_class_chk);
 }
 
-//ŒŸõ‘‹—p‚ÌHTML–{•¶
+//æ¤œç´¢çª“ç”¨ã®HTMLæœ¬æ–‡
 function body_search_windows_any($db_con_info,$host_url,$host_name,$usersess,$dispopt,$opt_ser_disp_menu,$opt_ser_hist_num,$keyword_org) {
   if ( $opt_ser_disp_menu == 'details') {
-    $body .=  "@@•\¦ƒŒƒxƒ‹F<input type='radio' name='dispclass' value='STA' checked> •W€
+    $body .=  "ã€€ã€€è¡¨ç¤ºãƒ¬ãƒ™ãƒ«ï¼š<input type='radio' name='dispclass' value='STA' checked> æ¨™æº–
                       <input type='radio' name='dispclass' value='ALL'>
-                      <A title='ƒCƒ[ƒW^‹æ•ª^“o˜^ID•\¦‚ğ•\¦‚µ‚½‚¢ê‡'>Ú×</A><br>";
+                      <A title='ã‚¤ãƒ¡ãƒ¼ã‚¸ï¼åŒºåˆ†ï¼ç™»éŒ²IDè¡¨ç¤ºã‚’è¡¨ç¤ºã—ãŸã„å ´åˆ'>è©³ç´°</A><br>";
   }
 
-  $body .= "<br>@@@<input size='51' name='keyword' type='text' id='keyword' value=\"$keyword_org\">
-            <input id = 'button_m' value='@@ŒŸõ@@' type='submit' class='withicon'>@";
+  $body .= "<br>ã€€ã€€ã€€<input size='51' name='keyword' type='text' id='keyword' value=\"$keyword_org\">
+            <input id = 'button_m' value='ã€€ã€€æ¤œç´¢ã€€ã€€' type='submit' class='withicon'>ã€€";
 
 $body .= "<style type='text/css'>
 input.withicon {
@@ -1141,24 +1141,24 @@ input.withicon {
 }
 </style>";
 
-  //ƒNƒŠƒbƒN—š—ğ•\¦
-  $body .= "<b>ƒNƒŠƒbƒN—š—ğ&nbsp;</b><A href='search.php?click_rireki=cr'><font color = 'black'>•\¦</A>";
+  //ã‚¯ãƒªãƒƒã‚¯å±¥æ­´è¡¨ç¤º
+  $body .= "<b>ã‚¯ãƒªãƒƒã‚¯å±¥æ­´&nbsp;</b><A href='search.php?click_rireki=cr'><font color = 'black'>è¡¨ç¤º</A>";
 
-  //ƒL[ƒ[ƒh—š—ğ•\¦
-  $body .="<b>@@ŒŸõ—š—ğ</b>";
+  //ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰å±¥æ­´è¡¨ç¤º
+  $body .="<b>ã€€ã€€æ¤œç´¢å±¥æ­´</b>";
   $body_rireki .= per_keyword_disp_any($db_con_info,$host_url,$host_name,$usersess,$dispopt,$opt_ser_hist_num);
 
   $body .="
-  <a href='#' id='link_view_" . $host_name . "' onClick='toggle_view_". $host_name . "() ;return false;' >•\¦</a>
-  <a href='#' id='link_hidden_" . $host_name . "' onClick='toggle_hidden_". $host_name . "();return false;' style='display:none'>”ñ•\¦</a>";
+  <a href='#' id='link_view_" . $host_name . "' onClick='toggle_view_". $host_name . "() ;return false;' >è¡¨ç¤º</a>
+  <a href='#' id='link_hidden_" . $host_name . "' onClick='toggle_hidden_". $host_name . "();return false;' style='display:none'>éè¡¨ç¤º</a>";
 
 /*
   $body .="
-  <a href='#' id='link_view2' onClick='toggle_view2();return false;' >•\¦</a>
-  <a href='#' id='link_hidden2' onClick='toggle_hidden2();return false;' style='display:none'>”ñ•\¦</a>";
+  <a href='#' id='link_view2' onClick='toggle_view2();return false;' >è¡¨ç¤º</a>
+  <a href='#' id='link_hidden2' onClick='toggle_hidden2();return false;' style='display:none'>éè¡¨ç¤º</a>";
 */
 
-  $body .= "@@@@<a href='user_option.php' target='_blank'>ƒIƒvƒVƒ‡ƒ“İ’è</A>"; 
+  $body .= "ã€€ã€€ã€€ã€€<a href='user_option.php' target='_blank'>ã‚ªãƒ—ã‚·ãƒ§ãƒ³è¨­å®š</A>"; 
 
   $body .= "</form>";
 
@@ -1167,7 +1167,7 @@ input.withicon {
              document.getElementById('keyword').focus();
           </SCRIPT>";
 
-  $body .="<div id='rireki_" . $host_name . "' style = 'display:none'>@$body_rireki</div>
+  $body .="<div id='rireki_" . $host_name . "' style = 'display:none'>ã€€$body_rireki</div>
 
   <script language='JavaScript' type='text/javascript'>
   <!--
@@ -1196,10 +1196,10 @@ input.withicon {
 
 
 
-//ŒÂl‚²‚Æ‚ÌŒŸõ‹æ•ªî•ñ‚ğæ“¾‚µƒZƒbƒg‚·‚é(Vj
+//å€‹äººã”ã¨ã®æ¤œç´¢åŒºåˆ†æƒ…å ±ã‚’å–å¾—ã—ã‚»ãƒƒãƒˆã™ã‚‹(æ–°ï¼‰
 function perinfoclass_set2($db_con_info,$userid) {
 
-  //MySQL‚ÉÚ‘±‚µ‚Ü‚·
+  //MySQLã«æ¥ç¶šã—ã¾ã™
   $mysqli = new mysqli(
     $db_con_info[dbserver],
     $db_con_info[dbuser],
@@ -1211,13 +1211,13 @@ function perinfoclass_set2($db_con_info,$userid) {
     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
     exit;
   }
-  $mysqli->set_charset("sjis"); // •¶š‰»‚¯–h~
+  $mysqli->set_charset("sjis"); // æ–‡å­—åŒ–ã‘é˜²æ­¢
 
   $sql = "SELECT * from tblaccess where ( userid = '$userid' and avaflg != 'delete' ) ORDER BY sort_num ";
   $rst = $mysqli->query($sql);
 
-  $perinfoclass[0] = "ŒÂl";
-  $perinfoclass[1] = "‹¤’Ê";
+  $perinfoclass[0] = "å€‹äºº";
+  $perinfoclass[1] = "å…±é€š";
 
   $i = 2 ;
 
@@ -1226,30 +1226,30 @@ function perinfoclass_set2($db_con_info,$userid) {
     $i = $i + 1 ;
   }
    
-  //Œ‹‰ÊƒZƒbƒg‚ğ”jŠü‚µ‚Ü‚·
+  //çµæœã‚»ãƒƒãƒˆã‚’ç ´æ£„ã—ã¾ã™
   mysqli_free_result($rst);
   return $perinfoclass;
 }
 
 
-//DBÚ‘±ŠÖ”Fw’èŒ`Amysql•¶ƒ^ƒCƒviPHP‚ªŒÃ‚¢ê‡”Åj
+//DBæ¥ç¶šé–¢æ•°ï¼šæŒ‡å®šå½¢ã€mysqlæ–‡ã‚¿ã‚¤ãƒ—ï¼ˆPHPãŒå¤ã„å ´åˆç‰ˆï¼‰
 function my_sql_connect_old($dbserver,$dbuser,$dbname,$dbpassword,$charset) {
   $link = mysql_connect($dbserver,$dbuser,$dbpassword);
   mysql_select_db($dbname,$link);
 }
 
-//DBÚ‘±ŠÖ”Fw’èŒ`Amysqli•¶ƒ^ƒCƒv
+//DBæ¥ç¶šé–¢æ•°ï¼šæŒ‡å®šå½¢ã€mysqliæ–‡ã‚¿ã‚¤ãƒ—
 function my_sql_connect_any($db_con_info,$charset) {
   $mysqli = new mysqli($db_con_info[dbserver],$db_con_info[dbuser],$db_con_info[dbpassword],$db_con_info[dbname]);
   if ($mysqli->connect_errno){
     echo "Failed to connect to MySQL: " . $mysqli->connect_error;
     exit;
   }
-  $mysqli->set_charset($charset); // •¶š‰»‚¯–h~isjis—p)
+  $mysqli->set_charset($charset); // æ–‡å­—åŒ–ã‘é˜²æ­¢ï¼ˆsjisç”¨)
   return $mysqli;
 }
 
-//ƒZƒLƒ…ƒŠƒeƒB‘Îô html•¶‚Ìƒ^ƒO–³Œø‰»
+//ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£å¯¾ç­– htmlæ–‡ã®ã‚¿ã‚°ç„¡åŠ¹åŒ–
 function h($str)
 {
   return htmlspecialchars($str, ENT_QUOTES, 'sjis');
@@ -1260,39 +1260,39 @@ function h($str)
 
 
 function body_common_header() {
-  //ƒgƒbƒvƒy[ƒW‚Ìƒwƒbƒ_
-  //ƒZƒbƒVƒ‡ƒ“‚ğŠJn‚µ‚Ü‚·
+  //ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸ã®ãƒ˜ãƒƒãƒ€
+  //ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã—ã¾ã™
   session_start();
 
   $dev_host_mes = "";
-  //ŒŸØŒn‚Ìê‡‚ÌƒƒbƒZ[ƒWì¬
+  //æ¤œè¨¼ç³»ã®å ´åˆã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä½œæˆ
   if( $_SERVER["HTTP_HOST"] == "10.90.233.52" ) {
-    $dev_host_mes = "@@<font color='green'>ŒŸØ—pƒTƒCƒg</font>";
+    $dev_host_mes = "ã€€ã€€<font color='green'>æ¤œè¨¼ç”¨ã‚µã‚¤ãƒˆ</font>";
   }
    
-  //–¼‘O•\¦ƒpƒ^[ƒ“
+  //åå‰è¡¨ç¤ºãƒ‘ã‚¿ãƒ¼ãƒ³
   $mysqli = my_sql_connect("sjis");
   $usersess = $_SESSION['USERSESS'];
-  //ŒÂl‚Ì–¼‘O‚ÌƒZƒbƒg  •‰‰×‚ª‚©‚©‚é‰Â”\«‚ª‚ ‚é‚Ì‚Å«—ˆ‰ü‘P—v
+  //å€‹äººã®åå‰ã®ã‚»ãƒƒãƒˆ  è² è·ãŒã‹ã‹ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã®ã§å°†æ¥æ”¹å–„è¦
   $sql = "SELECT * FROM user where userid = '$usersess' ";
   $rst = $mysqli->query($sql);
   $col = mysqli_fetch_array($rst);
-  $namekanji = $col['namekanji'];//–¼‘O‚ÌƒZƒbƒg
-  $opt_disp_css = $col['opt_disp_css'];//CSS‚Ì•\¦ƒ^ƒCƒvƒZƒbƒg
-  $per_osss_name = substr($col['mail_pc_address'], 0, strcspn($col['mail_pc_address'],'@'));//ƒ[ƒ‹ƒAƒhƒŒƒX‚Ì–¼‘O•”•ªƒZƒbƒg
+  $namekanji = $col['namekanji'];//åå‰ã®ã‚»ãƒƒãƒˆ
+  $opt_disp_css = $col['opt_disp_css'];//CSSã®è¡¨ç¤ºã‚¿ã‚¤ãƒ—ã‚»ãƒƒãƒˆ
+  $per_osss_name = substr($col['mail_pc_address'], 0, strcspn($col['mail_pc_address'],'@'));//ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã®åå‰éƒ¨åˆ†ã‚»ãƒƒãƒˆ
   $per_osss_url = "file://storage03.psss.g01.fujitsu.local/" . $per_osss_name;
 
   
-  //ƒwƒbƒ_ƒŠƒ“ƒNî•ñbodyì¬
-//  $ate_mes['0'] = "‘gDÄ•Òè‘±‚«ŠÖ˜A";
-  $ate_mes['0'] = "MIS2–‹Æ–{•”ƒ|[ƒ^ƒ‹";
-  $ate_mes['1'] = "•i¿ƒ|[ƒ^ƒ‹";
-  $ate_mes['2'] = "SEx‰‡ƒc[ƒ‹";
-  $ate_mes['3'] = "ŒÂl—pOSSS";
-  $ate_mes['4'] = "4ƒNƒ‰–OSSS";
-  $ate_mes['5'] = "2ƒVƒX–OSSS";
+  //ãƒ˜ãƒƒãƒ€ãƒªãƒ³ã‚¯æƒ…å ±bodyä½œæˆ
+//  $ate_mes['0'] = "çµ„ç¹”å†ç·¨æ‰‹ç¶šãé–¢é€£";
+  $ate_mes['0'] = "MIS2äº‹æ¥­æœ¬éƒ¨ãƒãƒ¼ã‚¿ãƒ«";
+  $ate_mes['1'] = "å“è³ªãƒãƒ¼ã‚¿ãƒ«";
+  $ate_mes['2'] = "SEæ”¯æ´ãƒ„ãƒ¼ãƒ«";
+  $ate_mes['3'] = "å€‹äººç”¨OSSS";
+  $ate_mes['4'] = "4ã‚¯ãƒ©äº‹OSSS";
+  $ate_mes['5'] = "2ã‚·ã‚¹äº‹OSSS";
 
-//  $ate_url['0'] = "search.php?searchclass[]=‹¤’Ê&keyword=$ate_mes[0]' target='_blank'";
+//  $ate_url['0'] = "search.php?searchclass[]=å…±é€š&keyword=$ate_mes[0]' target='_blank'";
   $ate_url['0'] = "urilink.php?infoid=1331";
   $ate_url['1'] = "urilink.php?infoid=1747";
   $ate_url['2'] = "urilink.php?infoid=1404";
@@ -1302,10 +1302,10 @@ function body_common_header() {
   
   
   if (isset($_SESSION['USERSESS'])) {
-//            $body_userid = "<table style='margin-left : auto ; margin-right : 0 ; text-align : 0;'><td>ƒ†[ƒU‚h‚c</td><td> " .  $_SESSION['USERSESS']   . "</td></table>";
+//            $body_userid = "<table style='margin-left : auto ; margin-right : 0 ; text-align : 0;'><td>ãƒ¦ãƒ¼ã‚¶ï¼©ï¼¤</td><td> " .  $_SESSION['USERSESS']   . "</td></table>";
 
-//  $body_userid = "<td>ID:</td><td> " .  $_SESSION['USERSESS']   . "‚³‚ñ</td>"; //ID•\¦ƒpƒ^[ƒ“
-    $body_userid = "<td></td><td> " .  $namekanji  . "‚³‚ñ</td>"; //–¼‘O•\¦ƒpƒ^[ƒ“
+//  $body_userid = "<td>ID:</td><td> " .  $_SESSION['USERSESS']   . "ã•ã‚“</td>"; //IDè¡¨ç¤ºãƒ‘ã‚¿ãƒ¼ãƒ³
+    $body_userid = "<td></td><td> " .  $namekanji  . "ã•ã‚“</td>"; //åå‰è¡¨ç¤ºãƒ‘ã‚¿ãƒ¼ãƒ³
   }
 
   $body = "
@@ -1315,8 +1315,8 @@ function body_common_header() {
   <meta http-equiv='Content-Type' content='text/html; charset=Shift_JIS'>
   <meta http-equiv='Content-Style-Type' content='text/css'>
   <meta http-equiv='Content-Script-Type' content='text/javascript'>
-  <meta name='keywords' content='î•ñƒ|[ƒ^ƒ‹'>
-  <meta name='description' content='‘gDî•ñ‚ÌŒŸõƒ|[ƒ^ƒ‹'>
+  <meta name='keywords' content='æƒ…å ±ãƒãƒ¼ã‚¿ãƒ«'>
+  <meta name='description' content='çµ„ç¹”æƒ…å ±ã®æ¤œç´¢ãƒãƒ¼ã‚¿ãƒ«'>
   <script type='text/javascript' src='js/topics.js'></script>
   <link rel='stylesheet' href='css/hpbparts.css' type='text/css' id='hpbparts' charset='Shift_JIS'>
   <link rel='stylesheet' type='text/css' href='css/style.css'>";
@@ -1332,40 +1332,40 @@ function body_common_header() {
    }  
    $body .= "
   <link rel='stylesheet' href='css/user.css' type='text/css' id='hpbuser' charset='Shift_JIS'>
-  <title>î•ñƒ|[ƒ^ƒ‹</title>
+  <title>æƒ…å ±ãƒãƒ¼ã‚¿ãƒ«</title>
 
   </head>
   <body>
 
   <div id='container'>
 
-  <!-- ƒy[ƒWŠJn -->
+  <!-- ãƒšãƒ¼ã‚¸é–‹å§‹ -->
   <div id='page'>
 
-  <!-- ƒwƒbƒ_ŠJn -->
+  <!-- ãƒ˜ãƒƒãƒ€é–‹å§‹ -->
   <div id='header'>
 
-  <h1 class='siteTitle'><p>@î•ñƒ|[ƒ^ƒ‹". $dev_host_mes . "</P></h1>
+  <h1 class='siteTitle'><p>ã€€æƒ…å ±ãƒãƒ¼ã‚¿ãƒ«". $dev_host_mes . "</P></h1>
 
   <ul class='guide'>
-  <li class='first'><a href='site_mokuteki.php' target='_blank' style='text-decoration:none;'>“–ƒTƒCƒg‚É‚Â‚¢‚Ä</a></li>
+  <li class='first'><a href='site_mokuteki.php' target='_blank' style='text-decoration:none;'>å½“ã‚µã‚¤ãƒˆã«ã¤ã„ã¦</a></li>
   <li><a href='info_faq.php' style='text-decoration:none;'>FAQ</a></li>
-  <li><a href='infostamap.php' style='text-decoration:none;'>ƒTƒCƒgƒ}ƒbƒv</a></li>
-  <li><a href='logout.php' style='text-decoration:none;'>ƒƒOƒAƒEƒg</a></li>
+  <li><a href='infostamap.php' style='text-decoration:none;'>ã‚µã‚¤ãƒˆãƒãƒƒãƒ—</a></li>
+  <li><a href='logout.php' style='text-decoration:none;'>ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a></li>
   <li>" . $body_userid . "</li>
   </ul>
 
 
   <ul class='nl clearFix'>
-	<li class='active'><a href='login.php?id=1'>ƒgƒbƒv</a></li>
-	<li><a href='login.php?id=2'>ƒ}ƒbƒv</a></li>
-	<li><a href='login.php?id=3'>ŒŸõ</a></li>
-	<li><a href='login.php?id=4'>“o˜^</a></li>
-	<li><a href='extlink.php'>ƒTƒCƒg</a></li>
-	<li><a href='userupd.php'>İ’è</a></li>
+	<li class='active'><a href='login.php?id=1'>ãƒˆãƒƒãƒ—</a></li>
+	<li><a href='login.php?id=2'>ãƒãƒƒãƒ—</a></li>
+	<li><a href='login.php?id=3'>æ¤œç´¢</a></li>
+	<li><a href='login.php?id=4'>ç™»éŒ²</a></li>
+	<li><a href='extlink.php'>ã‚µã‚¤ãƒˆ</a></li>
+	<li><a href='userupd.php'>è¨­å®š</a></li>
   </ul>";
 
-  //ƒwƒbƒ_ƒŠƒ“ƒNî•ñ‚Ì‘g‚İ‚İ
+  //ãƒ˜ãƒƒãƒ€ãƒªãƒ³ã‚¯æƒ…å ±ã®çµ„ã¿è¾¼ã¿
 //  $body .= header_link_body();
   $body .= " 
   <ul class='spotlight'>";
@@ -1378,145 +1378,145 @@ function body_common_header() {
   <hr class='none'>
 
   </div>
-  <!-- ƒwƒbƒ_I—¹ -->
+  <!-- ãƒ˜ãƒƒãƒ€çµ‚äº† -->
   ";
   return array($body,$per_osss_url);  
 }
 
-//htmlheader‚Å“Ç‚ñ‚Å‚¢‚é—p‚Éì¬iƒŠƒXƒg‚Åó‚¯‚ê‚È‚¢‚½‚ßj
+//htmlheaderã§èª­ã‚“ã§ã„ã‚‹ç”¨ã«ä½œæˆï¼ˆãƒªã‚¹ãƒˆã§å—ã‘ã‚Œãªã„ãŸã‚ï¼‰
 function htmlheader($pagetitle) {
   list ($body_header,$per_osss_url) = body_common_header();
   return $body_header;
 }
 
-//ƒgƒbƒv‚Ì–{‘Ì•”•ª
+//ãƒˆãƒƒãƒ—ã®æœ¬ä½“éƒ¨åˆ†
 function body_top_main($per_osss_url) {
 
   $usersess = $_SESSION['USERSESS'];
 
-  //DB‚ÉÚ‘±
+  //DBã«æ¥ç¶š
   $mysqli = my_sql_connect("sjis");
 
   $body = "
 
-  <!-- ƒRƒ“ƒeƒ“ƒcŠJn -->
+  <!-- ã‚³ãƒ³ãƒ†ãƒ³ãƒ„é–‹å§‹ -->
   <div id='content'>
 
-  <!-- ƒƒCƒ“ƒJƒ‰ƒ€ŠJn -->
+  <!-- ãƒ¡ã‚¤ãƒ³ã‚«ãƒ©ãƒ é–‹å§‹ -->
   <div id='main'>
   
   <div class='section topics'>
 
   <ul class='tabs clearFix' id='tabs'>
-  <li class='first' id='tab1'><a href='#' onclick='topics(1); return false;'>ŒŸõƒTƒCƒg</a></li>
-  <li id='tab2'><a href='#' onclick='topics(2); return false;'>ƒV[ƒ“•ÊŒŸõ</a></li>
-  <li id='tab3'><a href='#' onclick='topics(3); return false;'>Šeí’Ê’m</a></li>
-  <li id='tab4'><a href='#' onclick='topics(4); return false;'>Šeíó‹µ</a></li>
-  <li class='last' id='tab5'><a href='#' onclick='topics(5); return false;'>ƒ}ƒCƒ^ƒO</a></li>
+  <li class='first' id='tab1'><a href='#' onclick='topics(1); return false;'>æ¤œç´¢ã‚µã‚¤ãƒˆ</a></li>
+  <li id='tab2'><a href='#' onclick='topics(2); return false;'>ã‚·ãƒ¼ãƒ³åˆ¥æ¤œç´¢</a></li>
+  <li id='tab3'><a href='#' onclick='topics(3); return false;'>å„ç¨®é€šçŸ¥</a></li>
+  <li id='tab4'><a href='#' onclick='topics(4); return false;'>å„ç¨®çŠ¶æ³</a></li>
+  <li class='last' id='tab5'><a href='#' onclick='topics(5); return false;'>ãƒã‚¤ã‚¿ã‚°</a></li>
   </ul>
 
   <div class='topicArea'>
 
-  <!-- ƒ{ƒbƒNƒX1ŠJn -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹1é–‹å§‹ -->
   <div class='topic' id='topic1'>
 
-  <p>yŠeíŒŸõƒTƒCƒgz</p>
-  <!-- <p>ŠeíŒŸõƒTƒCƒg</p>  -->
+  <p>ã€å„ç¨®æ¤œç´¢ã‚µã‚¤ãƒˆã€‘</p>
+  <!-- <p>å„ç¨®æ¤œç´¢ã‚µã‚¤ãƒˆ</p>  -->
   <ul>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/' target='_blank' style='text-decoration:none;'>IKBƒgƒbƒv</a>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/' target='_blank' style='text-decoration:none;'>IKBãƒˆãƒƒãƒ—</a>
   <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/itimap' target='_blank' style='text-decoration:none;'>IKB-ITIMAP</a>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/cloud.aspx' target='_blank' style='text-decoration:none;'>IKB-ƒNƒ‰ƒEƒh</a>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/metaarc.aspx' target='_blank' style='text-decoration:none;'>IKB-ƒOƒ‰ƒ“ƒhƒfƒUƒCƒ“</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://dds-pre.b.css.fujitsu.com/sisearch/' target='_blank' style='text-decoration:none;'>SE‘ŞƒT[ƒ`</a>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://s-navi.solnet.ssg.fujitsu.com/' target='_blank' style='text-decoration:none;'>SEî•ñƒ|[ƒ^ƒ‹</a>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://mysite.gcs.g01.fujitsu.local/personal/search/Pages/advanced.aspx?k=ALL%28%E4%B8%AD%E5%8E%9F%E3%83%93%E3%83%AB%29%20%28Path%3A%22ikb%2Esolnet%2Essg%2Efujitsu%2Ecom%2F%22%20OR%20Path%3A%22s%2Dnavi%2Esolnet%2Essg%2Efujitsu%2Ecom%2F%22%29' target='_blank' style='text-decoration:none;'>•xm’Ê‘SĞŒŸõ</a>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/cloud.aspx' target='_blank' style='text-decoration:none;'>IKB-ã‚¯ãƒ©ã‚¦ãƒ‰</a>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://ikb.jp.fujitsu.com/metaarc.aspx' target='_blank' style='text-decoration:none;'>IKB-ã‚°ãƒ©ãƒ³ãƒ‰ãƒ‡ã‚¶ã‚¤ãƒ³</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://dds-pre.b.css.fujitsu.com/sisearch/' target='_blank' style='text-decoration:none;'>SEè³‡æã‚µãƒ¼ãƒ</a>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://s-navi.solnet.ssg.fujitsu.com/' target='_blank' style='text-decoration:none;'>SEæƒ…å ±ãƒãƒ¼ã‚¿ãƒ«</a>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://mysite.gcs.g01.fujitsu.local/personal/search/Pages/advanced.aspx?k=ALL%28%E4%B8%AD%E5%8E%9F%E3%83%93%E3%83%AB%29%20%28Path%3A%22ikb%2Esolnet%2Essg%2Efujitsu%2Ecom%2F%22%20OR%20Path%3A%22s%2Dnavi%2Esolnet%2Essg%2Efujitsu%2Ecom%2F%22%29' target='_blank' style='text-decoration:none;'>å¯Œå£«é€šå…¨ç¤¾æ¤œç´¢</a>
   <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='https://www.google.co.jp/' target='_blank' style='text-decoration:none;'>google</a><br>
   </ul>
 
 
   </div>
-  <!-- ƒ{ƒbƒNƒX1I—¹ -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹1çµ‚äº† -->
 
-  <!-- ƒ{ƒbƒNƒX2ŠJn -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹2é–‹å§‹ -->
   <div class='topic' id='topic2'>
-  <p>yƒV[ƒ“•ÊŠeíŒŸõz</p>
+  <p>ã€ã‚·ãƒ¼ãƒ³åˆ¥å„ç¨®æ¤œç´¢ã€‘</p>
   <!--
-  <p>ƒ{ƒbƒNƒXi–{•¶—Ìˆæj‚Ì‚‚³‚Í11em‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·Bˆê”Ô‚‚³‚Ì‚ ‚éƒ{ƒbƒNƒX‚É‡‚í‚¹‚Ä’²®‚µ‚Ä‚­‚¾‚³‚¢B</p>
-  <p>“à—e‚ªƒ{ƒbƒNƒX‚Ì‚‚³‚©‚ç‚Í‚İo‚½ê‡‚ÍAƒXƒNƒ[ƒ‹‚Å•\¦‚³‚ê‚é‚±‚Æ‚É‚È‚è‚Ü‚·Biuƒ^ƒuà–¾3v‚ğQÆj</p>
+  <p>ãƒœãƒƒã‚¯ã‚¹ï¼ˆæœ¬æ–‡é ˜åŸŸï¼‰ã®é«˜ã•ã¯11emã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™ã€‚ä¸€ç•ªé«˜ã•ã®ã‚ã‚‹ãƒœãƒƒã‚¯ã‚¹ã«åˆã‚ã›ã¦èª¿æ•´ã—ã¦ãã ã•ã„ã€‚</p>
+  <p>å†…å®¹ãŒãƒœãƒƒã‚¯ã‚¹ã®é«˜ã•ã‹ã‚‰ã¯ã¿å‡ºãŸå ´åˆã¯ã€ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã§è¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã«ãªã‚Šã¾ã™ã€‚ï¼ˆã€Œã‚¿ãƒ–èª¬æ˜3ã€ã‚’å‚ç…§ï¼‰</p>
   -->
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;¡Œã’ñ‹Ÿ—\’è<br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;ä»Šå¾Œæä¾›äºˆå®š<br>
   
   </div>
-  <!-- ƒ{ƒbƒNƒX2I—¹ -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹2çµ‚äº† -->
   
-  <!-- ƒ{ƒbƒNƒX3ŠJn -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹3é–‹å§‹ -->
   <div class='topic' id='topic3'>
 
   <!--
-  <p>‚±‚ÌƒTƒ“ƒvƒ‹‚Å‚ÍAƒ^ƒuƒGƒŠƒA‚Ì•‚¢‚Á‚Ï‚¢‚Éƒ^ƒu‚ğ•À‚×‚Ä‚¢‚Ü‚·Bƒ^ƒuƒGƒŠƒA‚Ì•i468pxj‚ğ5‚ÅŠ„‚èØ‚ê‚È‚¢‚Ì‚ÅAÅ‰‚ÆÅŒã‚Ì€–Ú‚ÉƒNƒ‰ƒX–¼ifirstAlastj‚ğİ’è‚µ‚Ä€–Ú•‚ğ’²®‚µ‚Ä‚¢‚Ü‚·BiŠ„‚èØ‚ê‚éê‡‚Í‚±‚ÌƒNƒ‰ƒX–¼‚Ìİ’è‚Í•K—v‚ ‚è‚Ü‚¹‚ñj</p>
-  <p>•‚¢‚Á‚Ï‚¢‚É•À‚×‚È‚¢i‰E‘¤‚É—]”’‚ªc‚éjê‡‚ÍACSSƒR[ƒh“à‚ÌuÅŒã‚ÌƒŠƒ“ƒNƒGƒŠƒAv‚Ìİ’è‚ğíœ‚µ‚Ä‚­‚¾‚³‚¢Bi‚±‚ê‚ğíœ‚µ‚È‚¢‚ÆAÅŒã‚Ìƒ^ƒu‚Ì‰E‚’¼ü‚ª•\¦‚³‚ê‚Ü‚¹‚ñj</p>
-  <p>‚Ü‚½Aƒ^ƒu“à‚ÌƒeƒLƒXƒg‚Ì¶‰E‚É‚Í—]—T‚ğ‚½‚¹‚Ä‚­‚¾‚³‚¢BƒMƒŠƒMƒŠ‚Éİ’è‚·‚é‚ÆAƒuƒ‰ƒEƒU‚Ì•¶šƒTƒCƒY‚ğ‘å‚«‚­‚µ‚½Û‚ÉÜ‚è•Ô‚µ‚ª“ü‚Á‚Ä‚µ‚Ü‚¢‚Ü‚·i•\¦‚ª•ö‚ê‚Ä‚µ‚Ü‚¢‚Ü‚·jB</p>
-  <p>ƒuƒ‰ƒEƒU‚Ì•¶šƒTƒCƒY‚ğ‘å‚«‚­‚µ‚Ä•\¦Šm”F‚ğs‚Á‚Ä‚­‚¾‚³‚¢B</p>
+  <p>ã“ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã¯ã€ã‚¿ãƒ–ã‚¨ãƒªã‚¢ã®å¹…ã„ã£ã±ã„ã«ã‚¿ãƒ–ã‚’ä¸¦ã¹ã¦ã„ã¾ã™ã€‚ã‚¿ãƒ–ã‚¨ãƒªã‚¢ã®å¹…ï¼ˆ468pxï¼‰ã‚’5ã§å‰²ã‚Šåˆ‡ã‚Œãªã„ã®ã§ã€æœ€åˆã¨æœ€å¾Œã®é …ç›®ã«ã‚¯ãƒ©ã‚¹åï¼ˆfirstã€lastï¼‰ã‚’è¨­å®šã—ã¦é …ç›®å¹…ã‚’èª¿æ•´ã—ã¦ã„ã¾ã™ã€‚ï¼ˆå‰²ã‚Šåˆ‡ã‚Œã‚‹å ´åˆã¯ã“ã®ã‚¯ãƒ©ã‚¹åã®è¨­å®šã¯å¿…è¦ã‚ã‚Šã¾ã›ã‚“ï¼‰</p>
+  <p>å¹…ã„ã£ã±ã„ã«ä¸¦ã¹ãªã„ï¼ˆå³å´ã«ä½™ç™½ãŒæ®‹ã‚‹ï¼‰å ´åˆã¯ã€CSSã‚³ãƒ¼ãƒ‰å†…ã®ã€Œæœ€å¾Œã®ãƒªãƒ³ã‚¯ã‚¨ãƒªã‚¢ã€ã®è¨­å®šã‚’å‰Šé™¤ã—ã¦ãã ã•ã„ã€‚ï¼ˆã“ã‚Œã‚’å‰Šé™¤ã—ãªã„ã¨ã€æœ€å¾Œã®ã‚¿ãƒ–ã®å³å‚ç›´ç·šãŒè¡¨ç¤ºã•ã‚Œã¾ã›ã‚“ï¼‰</p>
+  <p>ã¾ãŸã€ã‚¿ãƒ–å†…ã®ãƒ†ã‚­ã‚¹ãƒˆã®å·¦å³ã«ã¯ä½™è£•ã‚’æŒãŸã›ã¦ãã ã•ã„ã€‚ã‚®ãƒªã‚®ãƒªã«è¨­å®šã™ã‚‹ã¨ã€ãƒ–ãƒ©ã‚¦ã‚¶ã®æ–‡å­—ã‚µã‚¤ã‚ºã‚’å¤§ããã—ãŸéš›ã«æŠ˜ã‚Šè¿”ã—ãŒå…¥ã£ã¦ã—ã¾ã„ã¾ã™ï¼ˆè¡¨ç¤ºãŒå´©ã‚Œã¦ã—ã¾ã„ã¾ã™ï¼‰ã€‚</p>
+  <p>ãƒ–ãƒ©ã‚¦ã‚¶ã®æ–‡å­—ã‚µã‚¤ã‚ºã‚’å¤§ããã—ã¦è¡¨ç¤ºç¢ºèªã‚’è¡Œã£ã¦ãã ã•ã„ã€‚</p>
   -->
 
-  <a>y‘gD“à‚Å‚Ì’Ê’mî•ñ‹y‚ÑƒŠƒ“ƒNæ‚ğŒfÚz</a>
+  <a>ã€çµ„ç¹”å†…ã§ã®é€šçŸ¥æƒ…å ±åŠã³ãƒªãƒ³ã‚¯å…ˆã‚’æ²è¼‰ã€‘</a>
   <ul>
-<!--  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='infodisplay.php?infoid=531' target='_blank'>yƒvƒƒZƒX‰ü‘Pz¤’kŒŸ“¢‰ï/PA‰ïƒvƒƒZƒXŒ©’¼‚µ</a><br> -->
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/itkibanbg/Lists/BG' target='_blank'>‹Œ¼BG)IT–{•”ƒ|[ƒ^ƒ‹’Ê’m–€</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/fwest/portal/Lists/fwBBS' target='_blank'>‹Œ¼BG)ƒ|[ƒ^ƒ‹’Ê’m–€</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/jst/recognization_gyomu/Lists/List/AllItems.aspx' target='_blank'>10Œ1“ú•t‘gDÄ•Òƒ|[ƒ^ƒ‹ ‚¨’m‚ç‚¹iŒf¦”Âj</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/itsolution/ITSBUPortal/Lists/News/view2.aspx' target='_blank'>ITƒVƒXƒeƒ€–‹Æ–{•” : –‹Æ–{•”‚¨’m‚ç‚¹ </a><br>
+<!--  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='infodisplay.php?infoid=531' target='_blank'>ã€ãƒ—ãƒ­ã‚»ã‚¹æ”¹å–„ã€‘å•†è«‡æ¤œè¨ä¼š/PAä¼šãƒ—ãƒ­ã‚»ã‚¹è¦‹ç›´ã—</a><br> -->
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/itkibanbg/Lists/BG' target='_blank'>æ—§è¥¿BG)ITæœ¬éƒ¨ãƒãƒ¼ã‚¿ãƒ«é€šçŸ¥äº‹é …</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/fwest/portal/Lists/fwBBS' target='_blank'>æ—§è¥¿BG)ãƒãƒ¼ã‚¿ãƒ«é€šçŸ¥äº‹é …</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/jst/recognization_gyomu/Lists/List/AllItems.aspx' target='_blank'>10æœˆ1æ—¥ä»˜çµ„ç¹”å†ç·¨ãƒãƒ¼ã‚¿ãƒ« ãŠçŸ¥ã‚‰ã›ï¼ˆæ²ç¤ºæ¿ï¼‰</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/itsolution/ITSBUPortal/Lists/News/view2.aspx' target='_blank'>ITã‚·ã‚¹ãƒ†ãƒ äº‹æ¥­æœ¬éƒ¨ : äº‹æ¥­æœ¬éƒ¨ãŠçŸ¥ã‚‰ã› </a><br>
   </ul>
   </div>
-  <!-- ƒ{ƒbƒNƒX3I—¹ -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹3çµ‚äº† -->
   
-  <!-- ƒ{ƒbƒNƒX4ŠJn -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹4é–‹å§‹ -->
   <div class='topic' id='topic4'>
-  <a>y‘gD‹y‚ÑŒÂl‚ÌŠeíó‹µ‹y‚ÑƒŠƒ“ƒNæ‚ğŒfÚz</a>
+  <a>ã€çµ„ç¹”åŠã³å€‹äººã®å„ç¨®çŠ¶æ³åŠã³ãƒªãƒ³ã‚¯å…ˆã‚’æ²è¼‰ã€‘</a>
   <ul>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='portforio_map_main.php' target='_blank'>2017”N“x ‘æ“ñƒVƒX–@‰ºŠúLCM(ÅVó‹µ)</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki_tougetu.php' target='_blank'>2017”N“x SI–‹Æ•”@ãŠú‘¹‰vÀÑ(ÅVó‹µ)</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki.php' target='_blank'>2013-2016”N“x@SI–‹Æ•”@‘¹‰vÀÑ</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki_cs_ruikei_ranking.php?sorttype=ruikei_uriage' target='_blank'>2014-2017”N“x@SI–‹Æ•”@ŒÚ‹q•ÊÀÑƒ‰ƒ“ƒLƒ“ƒO</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='portforio_dash0.php' target='_blank'>–‹Æ•”@ƒ|[ƒgƒtƒHƒŠƒI</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='portforio_dash0_gyousyu1.php' target='_blank'>–‹Æ•”@‹Æí•ÊƒrƒWƒlƒXó‹µ</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki_dash_disp_chart.php' target='_blank'>SI–‹Æ•”@2016”N“xÀÑiƒOƒ‰ƒt‚ ‚èj</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='portforio_map_main.php' target='_blank'>2017å¹´åº¦ ç¬¬äºŒã‚·ã‚¹äº‹ã€€ä¸‹æœŸLCM(æœ€æ–°çŠ¶æ³)</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki_tougetu.php' target='_blank'>2017å¹´åº¦ SIäº‹æ¥­éƒ¨ã€€ä¸ŠæœŸæç›Šå®Ÿç¸¾(æœ€æ–°çŠ¶æ³)</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki.php' target='_blank'>2013-2016å¹´åº¦ã€€SIäº‹æ¥­éƒ¨ã€€æç›Šå®Ÿç¸¾</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki_cs_ruikei_ranking.php?sorttype=ruikei_uriage' target='_blank'>2014-2017å¹´åº¦ã€€SIäº‹æ¥­éƒ¨ã€€é¡§å®¢åˆ¥å®Ÿç¸¾ãƒ©ãƒ³ã‚­ãƒ³ã‚°</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='portforio_dash0.php' target='_blank'>äº‹æ¥­éƒ¨ã€€ãƒãƒ¼ãƒˆãƒ•ã‚©ãƒªã‚ª</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='portforio_dash0_gyousyu1.php' target='_blank'>äº‹æ¥­éƒ¨ã€€æ¥­ç¨®åˆ¥ãƒ“ã‚¸ãƒã‚¹çŠ¶æ³</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='soneki_dash_disp_chart.php' target='_blank'>SIäº‹æ¥­éƒ¨ã€€2016å¹´åº¦å®Ÿç¸¾ï¼ˆã‚°ãƒ©ãƒ•ã‚ã‚Šï¼‰</a><br>
   
   </ul>
 
   </div>
-  <!-- ƒ{ƒbƒNƒX4I—¹ -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹4çµ‚äº† -->
 
 
-  <!-- ƒ{ƒbƒNƒX5ŠJn -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹5é–‹å§‹ -->
   <div class='topic clearFix' id='topic5'>
 
   <!--
   <div class='catch'>
-  <p><a href='#'><img src='noimage.jpg' alt='ƒTƒ“ƒvƒ‹' width='100' height='70'></a></p>
-  <p><a href='#'>ƒLƒƒƒvƒVƒ‡ƒ“</a></p>
+  <p><a href='#'><img src='noimage.jpg' alt='ã‚µãƒ³ãƒ—ãƒ«' width='100' height='70'></a></p>
+  <p><a href='#'>ã‚­ãƒ£ãƒ—ã‚·ãƒ§ãƒ³</a></p>
   </div>
   --> 
 
   <div class='text'>
-  <p>yŒÂl‚ÌƒŠƒ“ƒNî•ñz</p>
-  <!-- <p>ƒ{ƒbƒNƒX“à‚Ì‰E‘¤‚ÉÊ^‚ğ”z’u‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·BiÊ^‚Ì•‚Í128px‚Ü‚Åj</p>  -->
+  <p>ã€å€‹äººã®ãƒªãƒ³ã‚¯æƒ…å ±ã€‘</p>
+  <!-- <p>ãƒœãƒƒã‚¯ã‚¹å†…ã®å³å´ã«å†™çœŸã‚’é…ç½®ã™ã‚‹ã“ã¨ã‚‚ã§ãã¾ã™ã€‚ï¼ˆå†™çœŸã®å¹…ã¯128pxã¾ã§ï¼‰</p>  -->
 
   <ul>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='mylink_display.php' target='_blank'>ƒ}ƒC‚¨‹C‚É“ü‚è</a><br>
-  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='" . $per_osss_url . "' target='_blank'>ƒ}ƒCƒtƒHƒ‹ƒ_iŒÂlosssƒtƒHƒ‹ƒ_j</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='mylink_display.php' target='_blank'>ãƒã‚¤ãŠæ°—ã«å…¥ã‚Š</a><br>
+  <img src='image/menu_triangle6.gif'>&nbsp;&nbsp;<a href='" . $per_osss_url . "' target='_blank'>ãƒã‚¤ãƒ•ã‚©ãƒ«ãƒ€ï¼ˆå€‹äººosssãƒ•ã‚©ãƒ«ãƒ€ï¼‰</a><br>
  
   </ul>
   </div>
 
   </div>
-  <!-- ƒ{ƒbƒNƒX5I—¹ -->
+  <!-- ãƒœãƒƒã‚¯ã‚¹5çµ‚äº† -->
 
   </div>
 
-  <!-- «ƒ^ƒuƒ{ƒbƒNƒX‚ğg—p‚·‚éê‡‚Ííœ‚µ‚È‚¢‚Å‚­‚¾‚³‚¢ -->
+  <!-- â†“ã‚¿ãƒ–ãƒœãƒƒã‚¯ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯å‰Šé™¤ã—ãªã„ã§ãã ã•ã„ -->
   <script type='text/javascript'>
-  topics(1); //ƒ^ƒuƒ{ƒbƒNƒX—p‚ÌŠÖ”‚ÌŒÄ‚Ño‚µ
+  topics(1); //ã‚¿ãƒ–ãƒœãƒƒã‚¯ã‚¹ç”¨ã®é–¢æ•°ã®å‘¼ã³å‡ºã—
   </script>
 
   </div>";
@@ -1526,10 +1526,10 @@ function body_top_main($per_osss_url) {
 
 	<div class='section normal'>";
 
-  //ŒŸõ‘‹
+  //æ¤œç´¢çª“
   $body .= index_search_windows($rireki_type,$perinfoclass,$searchclass,$usersess,$dispopt,$opt_ser_disp_lev,$opt_ser_hist_num,$keyword_org);
 
-  //¡“ú‚Ì“ú•t‚ğƒZƒbƒg
+  //ä»Šæ—¥ã®æ—¥ä»˜ã‚’ã‚»ãƒƒãƒˆ
   $today = date('Y/m/d');
 
 //  $where_newinfo = body_newinfo_where();
@@ -1538,7 +1538,7 @@ function body_top_main($per_osss_url) {
 /*
   $sql = "select Count(*) AS cnt from tblinfo where $where_newinfo ";
   dp(sql,$sql);
-  //SQL•¶‚ğ”­s‚µ‚Ü‚·
+  //SQLæ–‡ã‚’ç™ºè¡Œã—ã¾ã™
   $mysqli->query($sql);
   $rst = $mysqli->query($sql);
   $col = mysqli_fetch_array($rst);
@@ -1553,7 +1553,7 @@ function body_top_main($per_osss_url) {
   
   <div class='section normal update'>
   <div class='heading'>
-  <h2>V’…î•ñ</h2>
+  <h2>æ–°ç€æƒ…å ±</h2>
   </div>";
   
   $body .="<dl class='clearFix'>";
@@ -1562,28 +1562,28 @@ function body_top_main($per_osss_url) {
     $body .="<dt>$today</dt>";
   }
   if ( $tcnt1 > 0 ) { 
-    $body .="<dd>ğ“ú‚©‚ç‚ÌXVî•ñ‚ª<b><a href='search.php' target='_blank'>" . $tcnt1 . "Œ</a></b>‚ ‚è‚Ü‚·</dd>";
+    $body .="<dd>æ˜¨æ—¥ã‹ã‚‰ã®æ›´æ–°æƒ…å ±ãŒ<b><a href='search.php' target='_blank'>" . $tcnt1 . "ä»¶</a></b>ã‚ã‚Šã¾ã™</dd>";
   }
   if ( $tcnt2 > 0 ) {
-    $body .="<dd>‰ß‹1TŠÔ‚Å‚ÌXVî•ñ‚ª<b><a href='search.php' target='_blank'>" . $tcnt2 . "Œ</a></b>‚ ‚è‚Ü‚·</dd>";
+    $body .="<dd>éå»1é€±é–“ã§ã®æ›´æ–°æƒ…å ±ãŒ<b><a href='search.php' target='_blank'>" . $tcnt2 . "ä»¶</a></b>ã‚ã‚Šã¾ã™</dd>";
   }
 
-  $body .="<dt>2018/04/18</dt><dd><b><font color='navy'><a href='urilink.php?infoid=1961' target='_blank' style='text-decoration:;'>í—ª‰ï‹c”­•\‘—¿(4/12)</a></font></b>‚ª“o˜^‚³‚ê‚Ü‚µ‚½B</dd>";
-  $body .="<dt>2018/03/30</dt><dd><b><font color='navy'><a href='urilink.php?infoid=1914' target='_blank' style='text-decoration:;'>MIS2–‹Æ–{•” 2018”N“x–‹Æ•ûj</a></font></b>‚ğ“o˜^‚µ‚Ü‚µ‚½B</dd>";
-  $body .="<dt>2017/12/04</dt><dd><b><font color='navy'>Še•”“àî•ñ‹¤—L‚Ì‚½‚ß‚Ìî•ñ‹æ•ª‚ğ’Ç‰Á</font></b>‚µ‚Ü‚µ‚½B</dd>";
-  $body .="<dd>•”“à‚Å‚Ìî•ñ‹¤—L‚ÉŠˆ—p‚µ‚Ä‚­‚¾‚³‚¢B</dd>";
-  $body .="<dt>2017/11/20</dt><dd>ÅV‚Ìî•ñ‚ÍA<b><font color='navy'>ŒŸõƒ{ƒ^ƒ“ƒNƒŠƒbƒN</font></b>‚Å•\¦‚³‚ê‚Ü‚·B</dd>";
-  $body .="<dd>“–ƒy[ƒW‰º‚Å<b><font color='navy'>ƒEƒHƒbƒ`ƒ[ƒh“o˜^AŒŸõ</font></b>‰Â”\‚Å‚·B</dd>";
+  $body .="<dt>2018/04/18</dt><dd><b><font color='navy'><a href='urilink.php?infoid=1961' target='_blank' style='text-decoration:;'>æˆ¦ç•¥ä¼šè­°ç™ºè¡¨è³‡æ–™(4/12)</a></font></b>ãŒç™»éŒ²ã•ã‚Œã¾ã—ãŸã€‚</dd>";
+  $body .="<dt>2018/03/30</dt><dd><b><font color='navy'><a href='urilink.php?infoid=1914' target='_blank' style='text-decoration:;'>MIS2äº‹æ¥­æœ¬éƒ¨ 2018å¹´åº¦äº‹æ¥­æ–¹é‡</a></font></b>ã‚’ç™»éŒ²ã—ã¾ã—ãŸã€‚</dd>";
+  $body .="<dt>2017/12/04</dt><dd><b><font color='navy'>å„éƒ¨å†…æƒ…å ±å…±æœ‰ã®ãŸã‚ã®æƒ…å ±åŒºåˆ†ã‚’è¿½åŠ </font></b>ã—ã¾ã—ãŸã€‚</dd>";
+  $body .="<dd>éƒ¨å†…ã§ã®æƒ…å ±å…±æœ‰ã«æ´»ç”¨ã—ã¦ãã ã•ã„ã€‚</dd>";
+  $body .="<dt>2017/11/20</dt><dd>æœ€æ–°ã®æƒ…å ±ã¯ã€<b><font color='navy'>æ¤œç´¢ãƒœã‚¿ãƒ³ã‚¯ãƒªãƒƒã‚¯</font></b>ã§è¡¨ç¤ºã•ã‚Œã¾ã™ã€‚</dd>";
+  $body .="<dd>å½“ãƒšãƒ¼ã‚¸ä¸‹ã§<b><font color='navy'>ã‚¦ã‚©ãƒƒãƒãƒ¯ãƒ¼ãƒ‰ç™»éŒ²ã€æ¤œç´¢</font></b>å¯èƒ½ã§ã™ã€‚</dd>";
 
 /*
-  $body .="<dt>2017/10/23</dt><dd>•”Šˆ“®•ûj‚ğ“o˜^‚µ‚Ü‚µ‚½B<a href='urilink.php?infoid=1403' target='_blank' style='text-decoration:;'>‰ºŠúŠe•”Šˆ“®•ûj</a></dd>";
-  $body .="<dt>2017/10/13</dt><dd>‰ºŠú–‹Æ•ûj‚ğ“o˜^‚µ‚Ü‚µ‚½B<a href='urilink.php?infoid=1358' target='_blank' style='text-decoration:;'>–‹Æ•ûj</a></dd>";
+  $body .="<dt>2017/10/23</dt><dd>éƒ¨æ´»å‹•æ–¹é‡ã‚’ç™»éŒ²ã—ã¾ã—ãŸã€‚<a href='urilink.php?infoid=1403' target='_blank' style='text-decoration:;'>ä¸‹æœŸå„éƒ¨æ´»å‹•æ–¹é‡</a></dd>";
+  $body .="<dt>2017/10/13</dt><dd>ä¸‹æœŸäº‹æ¥­æ–¹é‡ã‚’ç™»éŒ²ã—ã¾ã—ãŸã€‚<a href='urilink.php?infoid=1358' target='_blank' style='text-decoration:;'>äº‹æ¥­æ–¹é‡</a></dd>";
 */
-  $body .="<dt>2017/10/02</dt><dd>–‹Æ•”‚Ìî•ñƒ|[ƒ^ƒ‹‚ğ—pŠJn‚µ‚Ü‚µ‚½B<a href='site_mokuteki.php' target='_blank' style='text-decoration:;'>ƒTƒCƒgŠT—và–¾</a></dd>
+  $body .="<dt>2017/10/02</dt><dd>äº‹æ¥­éƒ¨ã®æƒ…å ±ãƒãƒ¼ã‚¿ãƒ«ã‚’è©¦ç”¨é–‹å§‹ã—ã¾ã—ãŸã€‚<a href='site_mokuteki.php' target='_blank' style='text-decoration:;'>ã‚µã‚¤ãƒˆæ¦‚è¦èª¬æ˜</a></dd>
   </dl>
   </div>";
 
-  //$body .="<dt>2017/10/16</dt><dd>¼“ú–{‚a‚f 2017”NãŠúŒˆZó‹µ‚ğ“o˜^‚µ‚Ü‚µ‚½B<a href='urilink.php?infoid=1375' target='_blank' style='text-decoration:;'>ãŠúŒˆZó‹µ</a></dd>
+  //$body .="<dt>2017/10/16</dt><dd>è¥¿æ—¥æœ¬ï¼¢ï¼§ 2017å¹´ä¸ŠæœŸæ±ºç®—çŠ¶æ³ã‚’ç™»éŒ²ã—ã¾ã—ãŸã€‚<a href='urilink.php?infoid=1375' target='_blank' style='text-decoration:;'>ä¸ŠæœŸæ±ºç®—çŠ¶æ³</a></dd>
  
 	
 	$body .="
@@ -1592,29 +1592,29 @@ function body_top_main($per_osss_url) {
 	<div class='section normal'>
 
 	<div class='heading'>
-	<h2>‹Zp‘Š’k</h2>
+	<h2>æŠ€è¡“ç›¸è«‡</h2>
 	</div>
-	<p>IT–{•”‹Zpƒ[ƒŠƒ“ƒOƒŠƒXƒg(ITtech)‚É‘Š’k‚µ‚Ä‚­‚¾‚³‚¢B<p><a href='mailto:ittech-infra@ml.css.fujitsu.com'>ittech-infra@ml.css.fujitsu.com</a></p>
+	<p>ITæœ¬éƒ¨æŠ€è¡“ãƒ¡ãƒ¼ãƒªãƒ³ã‚°ãƒªã‚¹ãƒˆ(ITtech)ã«ç›¸è«‡ã—ã¦ãã ã•ã„ã€‚<p><a href='mailto:ittech-infra@ml.css.fujitsu.com'>ittech-infra@ml.css.fujitsu.com</a></p>
 	</div>
 
 	<div class='section normal'>
 
 	<div class='heading'>
 
-	<h2>î•ñƒ|[ƒ^ƒ‹‚É‚Â‚¢‚Ä</h2>
+	<h2>æƒ…å ±ãƒãƒ¼ã‚¿ãƒ«ã«ã¤ã„ã¦</h2>
 
 	</div>
 
-	  <p>“–ƒ|[ƒ^ƒ‹‚Í‘gD‚Ìî•ñ‹¤—LŒø—¦‰»‚ÆŒÂl‚Ìî•ñŒŸõŒø—¦‰»‚ği‚ß‚éƒTƒCƒg‚Å‚·B</P>
+	  <p>å½“ãƒãƒ¼ã‚¿ãƒ«ã¯çµ„ç¹”ã®æƒ…å ±å…±æœ‰åŠ¹ç‡åŒ–ã¨å€‹äººã®æƒ…å ±æ¤œç´¢åŠ¹ç‡åŒ–ã‚’é€²ã‚ã‚‹ã‚µã‚¤ãƒˆã§ã™ã€‚</P>
 	 
-	  <p><a href='file://v130.osss.g01.fujitsu.local/f02489/99_‹ŒŠî”Õƒ|[ƒ^ƒ‹/03_‘æˆêSI–‹Æ•”/10_–‹Æ•”‹¤’Ê/12_d“_{ôŠˆ“®/ƒ[ƒNƒXƒ^ƒCƒ‹•ÏŠv„i/î•ñ‹¤—LŠî”Õ/–‹Æ•”î•ñ‹¤—LŠî”Õà–¾.ppt'>Ú×à–¾‚Í‚±‚¿‚ç</a></p>
+	  <p><a href='file://v130.osss.g01.fujitsu.local/f02489/99_æ—§åŸºç›¤ãƒãƒ¼ã‚¿ãƒ«/03_ç¬¬ä¸€SIäº‹æ¥­éƒ¨/10_äº‹æ¥­éƒ¨å…±é€š/12_é‡ç‚¹æ–½ç­–æ´»å‹•/ãƒ¯ãƒ¼ã‚¯ã‚¹ã‚¿ã‚¤ãƒ«å¤‰é©æ¨é€²/æƒ…å ±å…±æœ‰åŸºç›¤/äº‹æ¥­éƒ¨æƒ…å ±å…±æœ‰åŸºç›¤èª¬æ˜.ppt'>è©³ç´°èª¬æ˜ã¯ã“ã¡ã‚‰</a></p>
 
 	</div>
 
 	</div>
-	<!-- ƒƒCƒ“ƒJƒ‰ƒ€I—¹ -->";
+	<!-- ãƒ¡ã‚¤ãƒ³ã‚«ãƒ©ãƒ çµ‚äº† -->";
 
-  //Š²•”ƒƒjƒ…[•\¦—p‚Ìƒ`ƒFƒbƒN
+  //å¹¹éƒ¨ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤ºç”¨ã®ãƒã‚§ãƒƒã‚¯
   $sql = "SELECT member_class FROM user where userid = \"$usersess\" ";
   $rst = $mysqli->query($sql);
   $col = mysqli_fetch_array($rst);
@@ -1623,7 +1623,7 @@ function body_top_main($per_osss_url) {
   }    
   mysqli_free_result($rst);
 
-  //‹¤’Ê‚ÌƒJƒeƒSƒŠî•ñ‚ğ“Ç‚İ‚Ş
+  //å…±é€šã®ã‚«ãƒ†ã‚´ãƒªæƒ…å ±ã‚’èª­ã¿è¾¼ã‚€
   $sql = "SELECT * FROM tblcategory order by categoryid ";
   $rst = $mysqli->query($sql);
 
@@ -1634,22 +1634,22 @@ function body_top_main($per_osss_url) {
   }
 	$body .="
 
-	<!-- ƒTƒCƒhƒo[(A)ŠJn -->
+	<!-- ã‚µã‚¤ãƒ‰ãƒãƒ¼(A)é–‹å§‹ -->
 	<div id='nav'>
 
 	<div class='section subMenu'>
 
-	<h2>î•ñƒJƒeƒSƒŠ</h2>
+	<h2>æƒ…å ±ã‚«ãƒ†ã‚´ãƒª</h2>
 
 	<ul class='nl'>";
 	
 	for ($i = 1; $i < $cnt; $i++) {
-	  if ( $topmenu[$i] == "Š²•”ŠÇ—" ) {
+	  if ( $topmenu[$i] == "å¹¹éƒ¨ç®¡ç†" ) {
 	    if ( $kanbu_flg == "yes" ) {
-	      $body .="<li align='left'><a href='search.php?searchclass[]=‹¤’Ê&keyword=$topmenu[$i]' target='_blank'>$topmenu[$i]</a></li>";
+	      $body .="<li align='left'><a href='search.php?searchclass[]=å…±é€š&keyword=$topmenu[$i]' target='_blank'>$topmenu[$i]</a></li>";
         }
       } else {
-        $body .="<li align='left'><a href='search.php?searchclass[]=‹¤’Ê&keyword=$topmenu[$i]' target='_blank'>$topmenu[$i]</a></li>";
+        $body .="<li align='left'><a href='search.php?searchclass[]=å…±é€š&keyword=$topmenu[$i]' target='_blank'>$topmenu[$i]</a></li>";
       }   
 	}  
 
@@ -1660,34 +1660,34 @@ function body_top_main($per_osss_url) {
 	</div>
 
 	</div>
-	<!-- ƒTƒCƒhƒo[(A)I—¹ -->
+	<!-- ã‚µã‚¤ãƒ‰ãƒãƒ¼(A)çµ‚äº† -->
 
 
 	<hr class='clear'>
 
 	</div>
-	<!-- ƒRƒ“ƒeƒ“ƒcI—¹ -->
+	<!-- ã‚³ãƒ³ãƒ†ãƒ³ãƒ„çµ‚äº† -->
 
 
-	<!-- ƒTƒCƒhƒo[(B)ŠJn -->
+	<!-- ã‚µã‚¤ãƒ‰ãƒãƒ¼(B)é–‹å§‹ -->
 	<div id='aside'>
 
 	<div class='section strong'>
 
-	<h2>d—vL•ñ</h2>
+	<h2>é‡è¦åºƒå ±</h2>
 
 	<dl class='clearFix'>
-    <!-- ƒCƒ[ƒW‚ğ‚Â‚¯‚½‚¢ê‡‚ÍˆÈ‰º 
-	<dt><a href='#'><img src='noimage.jpg' alt='ƒTƒ“ƒvƒ‹' width='90' height='60'></a></dt>
-	<dd><a href='#'>d—v‚Å’m‚µ‚½‚¢“à—e‚É‘Î‚µ‚Ä‚±‚±‚©‚çƒŠƒ“ƒNB</a></dd>
+    <!-- ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ã¤ã‘ãŸã„å ´åˆã¯ä»¥ä¸‹ 
+	<dt><a href='#'><img src='noimage.jpg' alt='ã‚µãƒ³ãƒ—ãƒ«' width='90' height='60'></a></dt>
+	<dd><a href='#'>é‡è¦ã§å‘ŠçŸ¥ã—ãŸã„å†…å®¹ã«å¯¾ã—ã¦ã“ã“ã‹ã‚‰ãƒªãƒ³ã‚¯ã€‚</a></dd>
 	-->
 <!--
-    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/itkibanbg/_layouts/listform.aspx?PageType=4&ListId={2CB96FAB-7EAD-4A95-9E8D-615D6E83B208}&ID=241&ContentTypeID=0x010400C6E432C75C1007479CB9F577EA8EBF31' target='_blank'>y’ˆÓŠ«‹NzIPCOMd—váŠQ</a><br>
+    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='http://portalsite.gcs.g01.fujitsu.local/sites/itkibanbg/_layouts/listform.aspx?PageType=4&ListId={2CB96FAB-7EAD-4A95-9E8D-615D6E83B208}&ID=241&ContentTypeID=0x010400C6E432C75C1007479CB9F577EA8EBF31' target='_blank'>ã€æ³¨æ„å–šèµ·ã€‘IPCOMé‡è¦éšœå®³</a><br>
 -->
-    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='search.php?searchclass[]=‹¤’Ê&keyword=‘gDÄ•Òè‘±‚«ŠÖ˜A' target='_blank' style='text-decoration:none;'>‘gDÄ•Ò––±è‘±‚«‚É‚Â‚¢‚Ä</a><br>
-    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='infodisplay.php?infoid=1242' target='_blank' style='text-decoration:none;'>ŒÃ“cí–±‚©‚ç‚ÌƒƒbƒZ[ƒW</a><br>
+    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='search.php?searchclass[]=å…±é€š&keyword=çµ„ç¹”å†ç·¨æ‰‹ç¶šãé–¢é€£' target='_blank' style='text-decoration:none;'>çµ„ç¹”å†ç·¨äº‹å‹™æ‰‹ç¶šãã«ã¤ã„ã¦</a><br>
+    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='infodisplay.php?infoid=1242' target='_blank' style='text-decoration:none;'>å¤ç”°å¸¸å‹™ã‹ã‚‰ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</a><br>
 <!--
-    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1917' target='_blank' style='text-decoration:none;'>R‘º–{•”’·A´…–{•”’·‚©‚ç‚ÌƒƒbƒZ[ƒW<br>@(2Œ‘S‘Ì’©—ç)</a><br>
+    <img src='image/menu_triangle2.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1917' target='_blank' style='text-decoration:none;'>å±±æ‘æœ¬éƒ¨é•·ã€æ¸…æ°´æœ¬éƒ¨é•·ã‹ã‚‰ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸<br>ã€€(2æœˆå…¨ä½“æœç¤¼)</a><br>
 -->
 
 
@@ -1697,57 +1697,57 @@ function body_top_main($per_osss_url) {
 
 	<div class='section pickup'>
 
-	<h2>ƒŠƒ“ƒN</h2>
+	<h2>ãƒªãƒ³ã‚¯</h2>
 	<ul>
 
 	<li><dl class='clearFix'>
 	<!--
-	<dt><a href='#'><img src='noimage.jpg' alt='ƒTƒ“ƒvƒ‹' width='90' height='60'></a></dt>
-	<dd><a href='#'>ƒsƒbƒNƒAƒbƒvƒRƒ“ƒeƒ“ƒc1</a><br>ƒsƒbƒNƒAƒbƒvƒRƒ“ƒeƒ“ƒc‚ÉŠÖ‚·‚éŠÈ’P‚Èà–¾B</dd>
+	<dt><a href='#'><img src='noimage.jpg' alt='ã‚µãƒ³ãƒ—ãƒ«' width='90' height='60'></a></dt>
+	<dd><a href='#'>ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ³ãƒ†ãƒ³ãƒ„1</a><br>ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã«é–¢ã™ã‚‹ç°¡å˜ãªèª¬æ˜ã€‚</dd>
 	-->
-	<!-- <a>y—Ç‚­Œ©‚éƒTƒCƒgz</a><br> -->
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='cal0_2018.php' target='_blank' style='text-decoration:none;'>ƒ^ƒXƒNƒ_ƒbƒVƒ…ƒ{[ƒh</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='cal0_1IT.php' target='_blank' style='text-decoration:none;'>ƒ^ƒXƒNƒ_ƒbƒVƒ…ƒ{[ƒh(3ƒNƒ‰1ƒVƒX)</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='cal0_road.php' target='_blank' style='text-decoration:none;'>î•ñ‹¤—L‰ü‘P{ôˆê——</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1453' target='_blank' style='text-decoration:none;'>‹ŒSI–‹Æ•” OSSSƒtƒHƒ‹ƒ_</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1915' target='_blank' style='text-decoration:none;'>ƒ}ƒ‹ƒCƒg10F –{•”‰ï‹cº—\–ñ</a><br>";
+	<!-- <a>ã€è‰¯ãè¦‹ã‚‹ã‚µã‚¤ãƒˆã€‘</a><br> -->
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='cal0_2018.php' target='_blank' style='text-decoration:none;'>ã‚¿ã‚¹ã‚¯ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='cal0_1IT.php' target='_blank' style='text-decoration:none;'>ã‚¿ã‚¹ã‚¯ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰(3ã‚¯ãƒ©1ã‚·ã‚¹)</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='cal0_road.php' target='_blank' style='text-decoration:none;'>æƒ…å ±å…±æœ‰æ”¹å–„æ–½ç­–ä¸€è¦§</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1453' target='_blank' style='text-decoration:none;'>æ—§SIäº‹æ¥­éƒ¨ OSSSãƒ•ã‚©ãƒ«ãƒ€</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1915' target='_blank' style='text-decoration:none;'>ãƒãƒ«ã‚¤ãƒˆ10F æœ¬éƒ¨ä¼šè­°å®¤äºˆç´„</a><br>";
 
 
 	if ( $kanbu_flg == "yes" ) {
-  	$body .="<img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1321' target='_blank' style='text-decoration:none;'>MIS2Š²•”OSSSƒtƒHƒ‹ƒ_</a><br>";
+  	$body .="<img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1321' target='_blank' style='text-decoration:none;'>MIS2å¹¹éƒ¨OSSSãƒ•ã‚©ãƒ«ãƒ€</a><br>";
   }
 	$body .="
-    <!-- 2017.11.3 ƒRƒƒ“ƒgƒAƒEƒg@‚ ‚Ü‚èg‚Á‚Ä‚¢‚È‚¢‚Æ‘z’è
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='link_itp.php' target='_blank' style='text-decoration:none;'>ITƒ|[ƒ^ƒ‹ƒŠƒ“ƒNW</a><br>
+    <!-- 2017.11.3 ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã€€ã‚ã¾ã‚Šä½¿ã£ã¦ã„ãªã„ã¨æƒ³å®š
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='link_itp.php' target='_blank' style='text-decoration:none;'>ITãƒãƒ¼ã‚¿ãƒ«ãƒªãƒ³ã‚¯é›†</a><br>
     -->
 	</dl></li>
 
 
 	<li><dl class='clearFix'>
 	<!--
-	<dt><a href='#'><img src='noimage.jpg' alt='ƒTƒ“ƒvƒ‹' width='90' height='60'></a></dt>
-	<dd><a href='#'>ƒsƒbƒNƒAƒbƒvƒRƒ“ƒeƒ“ƒc2</a><br>ƒsƒbƒNƒAƒbƒvƒRƒ“ƒeƒ“ƒc‚ÉŠÖ‚·‚éŠÈ’P‚Èà–¾B</dd>
+	<dt><a href='#'><img src='noimage.jpg' alt='ã‚µãƒ³ãƒ—ãƒ«' width='90' height='60'></a></dt>
+	<dd><a href='#'>ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ³ãƒ†ãƒ³ãƒ„2</a><br>ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã«é–¢ã™ã‚‹ç°¡å˜ãªèª¬æ˜ã€‚</dd>
 	-->
-    <a>yŠeí‹K’èEŠî€î•ñz</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1977' target='_blank' style='text-decoration:none;'>MIS2ƒvƒƒZƒX‰^—pèˆø‚«(ŒˆÙŠî€)</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=2052' target='_blank' style='text-decoration:none;'>4ƒNƒ‰–‰^—pƒvƒƒZƒX‹K’è</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1488' target='_blank' style='text-decoration:none;'>ƒGƒXƒJƒŒ[ƒVƒ‡ƒ“Šî€</a><br>
+    <a>ã€å„ç¨®è¦å®šãƒ»åŸºæº–æƒ…å ±ã€‘</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1977' target='_blank' style='text-decoration:none;'>MIS2ãƒ—ãƒ­ã‚»ã‚¹é‹ç”¨æ‰‹å¼•ã(æ±ºè£åŸºæº–)</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=2052' target='_blank' style='text-decoration:none;'>4ã‚¯ãƒ©äº‹é‹ç”¨ãƒ—ãƒ­ã‚»ã‚¹è¦å®š</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=1488' target='_blank' style='text-decoration:none;'>ã‚¨ã‚¹ã‚«ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³åŸºæº–</a><br>
 
 
 
 	</dl></li>
 	<li class='last'><dl class='clearFix'>
-	<!-- ªÅŒã‚Ì€–Úili—v‘fj‚ÉƒNƒ‰ƒX–¼ilastj‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢ -->
+	<!-- â†‘æœ€å¾Œã®é …ç›®ï¼ˆliè¦ç´ ï¼‰ã«ã‚¯ãƒ©ã‚¹åï¼ˆlastï¼‰ã‚’è¨­å®šã—ã¦ãã ã•ã„ -->
 	<!--
-	<dt><a href='#'><img src='noimage.jpg' alt='ƒTƒ“ƒvƒ‹' width='90' height='60'></a></dt>
-	<dd><a href='#'>ƒsƒbƒNƒAƒbƒvƒRƒ“ƒeƒ“ƒc3</a><br>ƒsƒbƒNƒAƒbƒvƒRƒ“ƒeƒ“ƒc‚ÉŠÖ‚·‚éŠÈ’P‚Èà–¾B</dd>
+	<dt><a href='#'><img src='noimage.jpg' alt='ã‚µãƒ³ãƒ—ãƒ«' width='90' height='60'></a></dt>
+	<dd><a href='#'>ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ³ãƒ†ãƒ³ãƒ„3</a><br>ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã«é–¢ã™ã‚‹ç°¡å˜ãªèª¬æ˜ã€‚</dd>
 	-->
-    <a>y‚¨‚·‚·‚ßƒŠƒ“ƒNz</a><br> 
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='http://seshien.fwest.css.fujitsu.com/knowledge/open.knowledge/list' target='_blank' style='text-decoration:none;'>KnowledgeiSEì‹ÆŒø—¦‰»j<br>@(‹ŒSEx‰‡ƒc[ƒ‹ƒƒOƒIƒ“—v)</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=384' target='_blank' style='text-decoration:none;'>‹ŒSEx‰‡ƒc[ƒ‹</a><br>
-<!--    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='info_ranking.php' target='_blank' style='text-decoration:none;'>î•ñƒ|[ƒ^ƒ‹“àƒAƒNƒZƒXƒ‰ƒ“ƒLƒ“ƒO</a><br> -->
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='search.php?dispclass=&keyword=&orderby_opt=click' target='_blank' style='text-decoration:none;'>ƒTƒCƒg“à‰{——”ƒ‰ƒ“ƒLƒ“ƒO</a><br>
-    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='search.php?dispclass=&keyword=&orderby_opt=valuep' target='_blank' style='text-decoration:none;'>ƒTƒCƒg“à•]‰¿”ƒ‰ƒ“ƒLƒ“ƒO</a><br>
+    <a>ã€ãŠã™ã™ã‚ãƒªãƒ³ã‚¯ã€‘</a><br> 
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='http://seshien.fwest.css.fujitsu.com/knowledge/open.knowledge/list' target='_blank' style='text-decoration:none;'>Knowledgeï¼ˆSEä½œæ¥­åŠ¹ç‡åŒ–ï¼‰<br>ã€€(æ—§SEæ”¯æ´ãƒ„ãƒ¼ãƒ«ãƒ­ã‚°ã‚ªãƒ³è¦)</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='urilink.php?infoid=384' target='_blank' style='text-decoration:none;'>æ—§SEæ”¯æ´ãƒ„ãƒ¼ãƒ«</a><br>
+<!--    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='info_ranking.php' target='_blank' style='text-decoration:none;'>æƒ…å ±ãƒãƒ¼ã‚¿ãƒ«å†…ã‚¢ã‚¯ã‚»ã‚¹ãƒ©ãƒ³ã‚­ãƒ³ã‚°</a><br> -->
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='search.php?dispclass=&keyword=&orderby_opt=click' target='_blank' style='text-decoration:none;'>ã‚µã‚¤ãƒˆå†…é–²è¦§æ•°ãƒ©ãƒ³ã‚­ãƒ³ã‚°</a><br>
+    <img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='search.php?dispclass=&keyword=&orderby_opt=valuep' target='_blank' style='text-decoration:none;'>ã‚µã‚¤ãƒˆå†…è©•ä¾¡æ•°ãƒ©ãƒ³ã‚­ãƒ³ã‚°</a><br>
 
 
 
@@ -1760,51 +1760,51 @@ function body_top_main($per_osss_url) {
 
 	<div class='section emphasis'>
 
-	<h2>ƒƒbƒZ[ƒW</h2>
+	<h2>ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</h2>
 	<ul>
 <!--
-	<li ><a href='urilink.php?infoid=1455' target='_blank' style='text-decoration:none;'>Ä“c–{•”’·‘ã—ƒƒbƒZ[ƒW</a></li>
+	<li ><a href='urilink.php?infoid=1455' target='_blank' style='text-decoration:none;'>æŸ´ç”°æœ¬éƒ¨é•·ä»£ç†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</a></li>
 -->
-	<li ><a href='urilink.php?infoid=2055' target='_blank' style='text-decoration:none;'>2018”N“x–‹Æ•”•ûj</a></li>
+	<li ><a href='urilink.php?infoid=2055' target='_blank' style='text-decoration:none;'>2018å¹´åº¦äº‹æ¥­éƒ¨æ–¹é‡</a></li>
 <!--
-	<li ><a href='urilink.php?infoid=1916' target='_blank' style='text-decoration:none;'>–‹Æ•”’·ƒƒbƒZ[ƒW</a></li>
+	<li ><a href='urilink.php?infoid=1916' target='_blank' style='text-decoration:none;'>äº‹æ¥­éƒ¨é•·ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</a></li>
 -->
-	<li ><a href='# 'target='_blank' style='text-decoration:none;'>•”’·ƒƒbƒZ[ƒW</a></li>
+	<li ><a href='# 'target='_blank' style='text-decoration:none;'>éƒ¨é•·ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</a></li>
 	</ul>
 
 	<div class='section normal'>
 
-	<h2>ƒGƒXƒJƒŒ[ƒVƒ‡ƒ“</h2>
+	<h2>ã‚¨ã‚¹ã‚«ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³</h2>
 
-	<p><a href='urilink.php?infoid=1488' target='_blank' style='text-decoration:none;'>–â‘è‚ª‹N‚±‚Á‚½‚çA–À‚í‚¸ãi‚ÉƒGƒXƒJƒŒ[ƒVƒ‡ƒ“‚µ‚Ä‚­‚¾‚³‚¢B</a></p>
+	<p><a href='urilink.php?infoid=1488' target='_blank' style='text-decoration:none;'>å•é¡ŒãŒèµ·ã“ã£ãŸã‚‰ã€è¿·ã‚ãšä¸Šå¸ã«ã‚¨ã‚¹ã‚«ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã—ã¦ãã ã•ã„ã€‚</a></p>
 
 	</div>
 
 
 	<div class='section normal'>
 
-	<h2>SEƒ[ƒNƒXƒ^ƒCƒ‹•ÏŠv</h2>
+	<h2>SEãƒ¯ãƒ¼ã‚¯ã‚¹ã‚¿ã‚¤ãƒ«å¤‰é©</h2>
 
-	<p><img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='#'  align='left' style='text-decoration:none;'>d–‚Ìi‚ß•û</a></p>
-	<p><img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='#'  align='left' style='text-decoration:none;'>d–‰ü‘P’ñˆÄ</a></p>
+	<p><img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='#'  align='left' style='text-decoration:none;'>ä»•äº‹ã®é€²ã‚æ–¹</a></p>
+	<p><img src='image/menu_triangle6_box.gif'>&nbsp;&nbsp;<a href='#'  align='left' style='text-decoration:none;'>ä»•äº‹æ”¹å–„ææ¡ˆ</a></p>
 
 	</div>
 
 <!--
 	<div class='section normal contact'>
-	<h2>‹Zp‘Š’k</h2>
-	<p>‹CŒy‚Éƒ[ƒ‹</p>
+	<h2>æŠ€è¡“ç›¸è«‡</h2>
+	<p>æ°—è»½ã«ãƒ¡ãƒ¼ãƒ«</p>
 	<p class='tel'>ittech-infra@ml.css.fujitsu.com</p>
-	<p class='form'><a href='mailto:ittech-infra@ml.css.fujitsu.com'>‹CŒy‚É‘Š’k</a></p>
+	<p class='form'><a href='mailto:ittech-infra@ml.css.fujitsu.com'>æ°—è»½ã«ç›¸è«‡</a></p>
 	</div>
 -->
 
 	<div class='section normal'>
 
-	<h2>‰ü‘P—v–]</h2>
+	<h2>æ”¹å–„è¦æœ›</h2>
 
-	<p><a href='infonewyobo.php'>ƒ|[ƒ^ƒ‹‚ÉŠÖ‚µ‚Ä‚Ì‰ü‘PAV‹K—v–]‚É‘Î‚µ‚Ä‚Í‚±‚±‚©‚çƒŠƒ“ƒNB</a></p>
-<!--	<p><a href='#' style='text-decoration:none;'>ƒ|[ƒ^ƒ‹‚ÉŠÖ‚µ‚Ä‚Ì‰ü‘PAV‹K—v–]‚É‘Î‚µ‚Ä‚Í‚±‚±‚©‚çƒŠƒ“ƒNB</a></p>-->
+	<p><a href='infonewyobo.php'>ãƒãƒ¼ã‚¿ãƒ«ã«é–¢ã—ã¦ã®æ”¹å–„ã€æ–°è¦è¦æœ›ã«å¯¾ã—ã¦ã¯ã“ã“ã‹ã‚‰ãƒªãƒ³ã‚¯ã€‚</a></p>
+<!--	<p><a href='#' style='text-decoration:none;'>ãƒãƒ¼ã‚¿ãƒ«ã«é–¢ã—ã¦ã®æ”¹å–„ã€æ–°è¦è¦æœ›ã«å¯¾ã—ã¦ã¯ã“ã“ã‹ã‚‰ãƒªãƒ³ã‚¯ã€‚</a></p>-->
 
 	</div>
 
@@ -1813,7 +1813,7 @@ function body_top_main($per_osss_url) {
 
 	</div>
 
-	<!-- ƒTƒCƒhƒo[(B)I—¹ -->
+	<!-- ã‚µã‚¤ãƒ‰ãƒãƒ¼(B)çµ‚äº† -->
 
 	</div>
 ";
@@ -1824,26 +1824,26 @@ function body_top_main($per_osss_url) {
 
 function body_top_footer() {
 
-$body .="	<!-- ƒtƒbƒ^ŠJn -->
+$body .="	<!-- ãƒ•ãƒƒã‚¿é–‹å§‹ -->
 	<div id='footer'>
 
 	<ul class='nl'>
-	<li class='first'><a href='index.php'>ƒz[ƒ€</a></li>
-	<li><a href='site_mokuteki.php' target='_blank'>ƒTƒCƒg–Ú“I</a></li>
-<!--	<li><a href='index.php'>‰^‰cƒXƒ^ƒbƒt</a></li>  -->
-	<li><a href='infonewyobo.php'>‰ü‘P^—v–]^¿–â</a></li>
-<!--	<li><a href='index.php'>ˆÄ“à</a></li>  -->
+	<li class='first'><a href='index.php'>ãƒ›ãƒ¼ãƒ </a></li>
+	<li><a href='site_mokuteki.php' target='_blank'>ã‚µã‚¤ãƒˆç›®çš„</a></li>
+<!--	<li><a href='index.php'>é‹å–¶ã‚¹ã‚¿ãƒƒãƒ•</a></li>  -->
+	<li><a href='infonewyobo.php'>æ”¹å–„ï¼è¦æœ›ï¼è³ªå•</a></li>
+<!--	<li><a href='index.php'>æ¡ˆå†…</a></li>  -->
 	</ul>
 
 	<ul class='nl guide'>
 	<li class='first'><a href='info_faq.php'>FAQ</a></li>
-<!--	<li><a href='index.php'>ƒvƒ‰ƒCƒoƒV[ƒ|ƒŠƒV[</a></li> -->
-	<li><a href='infostamap.php'>ƒTƒCƒgƒ}ƒbƒv</a></li>
-<!--	<li><a href='index.php'>‚²ˆÓŒ©</a></li> -->
+<!--	<li><a href='index.php'>ãƒ—ãƒ©ã‚¤ãƒã‚·ãƒ¼ãƒãƒªã‚·ãƒ¼</a></li> -->
+	<li><a href='infostamap.php'>ã‚µã‚¤ãƒˆãƒãƒƒãƒ—</a></li>
+<!--	<li><a href='index.php'>ã”æ„è¦‹</a></li> -->
 	</ul>
 
 	<address>
-	GSI•”–å ƒOƒ[ƒoƒ‹ƒfƒŠƒoƒŠ[G  ‘æƒj‚l‚h‚r–‹Æ–{•”  ‘ælƒNƒ‰ƒEƒhƒCƒ“ƒeƒOƒŒ[ƒVƒ‡ƒ“–‹Æ•”
+	GSIéƒ¨é–€ ã‚°ãƒ­ãƒ¼ãƒãƒ«ãƒ‡ãƒªãƒãƒªãƒ¼G  ç¬¬ãƒ‹ï¼­ï¼©ï¼³äº‹æ¥­æœ¬éƒ¨  ç¬¬å››ã‚¯ãƒ©ã‚¦ãƒ‰ã‚¤ãƒ³ãƒ†ã‚°ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³äº‹æ¥­éƒ¨
 	<br>
 	</address>
 
@@ -1858,13 +1858,13 @@ $body .="	<!-- ƒtƒbƒ^ŠJn -->
 	//return array($imagefile,$errmsg);  
 
 	}
-//ƒgƒbƒv‚ÌŒŸõ‘‹—p
+//ãƒˆãƒƒãƒ—ã®æ¤œç´¢çª“ç”¨
 function index_search_windows($rireki_type,$perinfoclass,$searchclass,$usersess,$dispopt,$opt_ser_disp_lev,$opt_ser_hist_num,$keyword_org) {
 
   $body .= "<table><form name='kensaku' action='search.php' method='get'>";
 
-  //ŒŸõ‘‹—p‚ÌHTML–{•¶
-  $body .=  "ƒ|[ƒ^ƒ‹“àŒŸõ@<input size='48' name='keyword' type='text' id='keyword' value=\"$keyword_org\">&nbsp;<input id = 'button_m' value='@ŒŸõ@' type='submit' ><A title='andŒŸõ:ƒXƒy[ƒX&#13;&#10;orŒŸõFuAv‚Å‰Â”\‚Å‚·B'><img src='question16.png'></a>";
+  //æ¤œç´¢çª“ç”¨ã®HTMLæœ¬æ–‡
+  $body .=  "ãƒãƒ¼ã‚¿ãƒ«å†…æ¤œç´¢ã€€<input size='48' name='keyword' type='text' id='keyword' value=\"$keyword_org\">&nbsp;<input id = 'button_m' value='ã€€æ¤œç´¢ã€€' type='submit' ><A title='andæ¤œç´¢:ã‚¹ãƒšãƒ¼ã‚¹&#13;&#10;oræ¤œç´¢ï¼šã€Œã€ã€ã§å¯èƒ½ã§ã™ã€‚'><img src='question16.png'></a>";
   $body .= "<style type='text/css'>
   input.withicon {
     background-image: url('search_16.png');
@@ -1885,7 +1885,7 @@ function index_search_windows($rireki_type,$perinfoclass,$searchclass,$usersess,
 
 
 function htmlfooter() {
-	//Šeƒy[ƒW‚Ìƒtƒbƒ^•”‚ÌHTML‚ğ‘g‚İ—§‚Ä‚é
+	//å„ãƒšãƒ¼ã‚¸ã®ãƒ•ãƒƒã‚¿éƒ¨ã®HTMLã‚’çµ„ã¿ç«‹ã¦ã‚‹
 
 	/*
 	  $body = "</body></html>";
